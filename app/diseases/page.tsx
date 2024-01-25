@@ -1,6 +1,6 @@
-"use client"
+'use client'
 import React, { useEffect, useState } from 'react';
-import ListComponent from "../_components/listComponent/listComponent";
+import ListComponent from '../../src/_components/listComponent/listComponent';
 import styles from './page.module.scss';
 
 interface Disease {

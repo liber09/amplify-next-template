@@ -1,5 +1,5 @@
-"use client"
-import AuthenticatedComponent from "@/app/_components/authenticatedComponent/AuthenticatedComponent";
+'use client'
+import AuthenticatedComponent from '@/src/_components/authenticatedComponent/AuthenticatedComponent';
 
 
 const MyHealth = () => { 

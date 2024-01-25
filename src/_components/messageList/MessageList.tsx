@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './messagelist.module.scss'; // Import your stylesheet
+import styles from './messagelist.module.scss';
 
 interface Message {
   text: string;

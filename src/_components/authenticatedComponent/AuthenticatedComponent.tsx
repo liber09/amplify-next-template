@@ -1,7 +1,7 @@
-"use client"
+'use client'
 import { useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/app/_functions/AuthContext';
+import { useAuth } from '@/src/_functions/AuthContext';
 
 interface AuthenticatedComponentProps {
   children: ReactNode;

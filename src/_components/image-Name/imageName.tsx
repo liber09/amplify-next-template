@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import styles from './imageName.module.scss';
 //import AWS from 'aws-sdk';
-import ImageHandler from '@/app/_functions/imageHandler';
+import ImageHandler from '@/src/_functions/imageHandler';
 
 interface ImageNameProps {
     identificationNumber: string | null;

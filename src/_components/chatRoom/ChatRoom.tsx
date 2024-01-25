@@ -1,9 +1,9 @@
-"use client"
+'use client'
 import React, { useState, useEffect } from 'react';
 import MessageList from '../messageList/MessageList';
 import ChatInput from '../chatInput/ChatInput';
 import io from 'socket.io-client';
-import { HealthcareProvider } from '@/app/types/interfaces';
+import { HealthcareProvider } from '@/src/types/interfaces';
 
 const socket = io('http://localhost:3001');
 

@@ -1,11 +1,11 @@
-"use client"
+'use client'
 import React from 'react';
-import AuthenticatedComponent from "@/app/_components/authenticatedComponent/AuthenticatedComponent";
-import ImageName from "../_components/image-Name/imageName";
+import AuthenticatedComponent from '@/src/_components/authenticatedComponent/AuthenticatedComponent';
+import ImageName from '../../src/_components/image-Name/imageName';
 import Image from 'next/image';
 import Link from 'next/link';
-import ImageHandler from '../_functions/imageHandler';
-import { useAuth } from "../_functions/AuthContext";
+import ImageHandler from '../../src/_functions/imageHandler';
+import { useAuth } from '../../src/_functions/AuthContext';
 import styles from './page.module.scss';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -13,7 +13,7 @@ import 'react-calendar/dist/Calendar.css';
 
 const Account = () => { 
   const { state } = useAuth();
-  console.log("account: ", state.identificationNumber);
+  console.log('account: ', state.identificationNumber);
   return (
     <AuthenticatedComponent>
       <section>
@@ -25,8 +25,8 @@ const Account = () => {
             <p className={styles.link}>
               <span className={styles.icon}>
                 <Image
-                  src={ImageHandler("icon__Heartbeat__yvuota").toURL()}
-                  alt={"Ikon för min hälsa"}
+                  src={ImageHandler('icon__Heartbeat__yvuota').toURL()}
+                  alt={'Ikon för min hälsa'}
                   width={25}
                   height={25}
                 />
@@ -37,8 +37,8 @@ const Account = () => {
           <p className={styles.link}>
             <span className={styles.icon}>
               <Image
-                src={ImageHandler("icon__Alternate_Calendar__xfv3vz").toURL()}
-                alt={"Ikon för min kalender"}
+                src={ImageHandler('icon__Alternate_Calendar__xfv3vz').toURL()}
+                alt={'Ikon för min kalender'}
                 width={25}
                 height={20}
               />
@@ -48,8 +48,8 @@ const Account = () => {
           <p className={styles.link}>
             <span className={styles.icon}>
               <Image
-                src={ImageHandler("icon__Alternate_Prescription_Bottle__q447bx").toURL()}
-                alt={"Ikon för mediciner"}
+                src={ImageHandler('icon__Alternate_Prescription_Bottle__q447bx').toURL()}
+                alt={'Ikon för mediciner'}
                 width={25}
                 height={20}
               />
@@ -60,8 +60,8 @@ const Account = () => {
             <p className={styles.link}>
               <span className={styles.icon}>
                 <Image
-                  src={ImageHandler("icon__book__viqxkl").toURL()}
-                  alt={"Ikon för journaler"}
+                  src={ImageHandler('icon__book__viqxkl').toURL()}
+                  alt={'Ikon för journaler'}
                   width={25}
                   height={20}
                 />
@@ -72,8 +72,8 @@ const Account = () => {
           <p className={styles.link}>
             <span className={styles.diary}>
               <Image
-                src={ImageHandler("Spiral_Bound_Booklet_drpanh").toURL()}
-                alt={"Ikon för dagboken"}
+                src={ImageHandler('Spiral_Bound_Booklet_drpanh').toURL()}
+                alt={'Ikon för dagboken'}
                 width={25}
                 height={25}
               />
@@ -85,8 +85,8 @@ const Account = () => {
           <p className={styles.link}>
             <span className={styles.icon}>
               <Image
-                src={ImageHandler("icon__Envelope__smql3b").toURL()}
-                alt={"Ikon för mailboxen"}
+                src={ImageHandler('icon__Envelope__smql3b').toURL()}
+                alt={'Ikon för mailboxen'}
                 width={25}
                 height={25}
               />
@@ -96,8 +96,8 @@ const Account = () => {
           <p className={styles.link}>
             <span className={styles.icon}>
               <Image
-                src={ImageHandler("icon__Identification_Card__f1wret").toURL()}
-                alt={"Ikon för kontakboken"}
+                src={ImageHandler('icon__Identification_Card__f1wret').toURL()}
+                alt={'Ikon för kontakboken'}
                 width={25}
                 height={20}
               />
@@ -108,8 +108,8 @@ const Account = () => {
             <p className={styles.link}>
               <span className={styles.icon}>
                 <Image
-                  src={ImageHandler("Chat_Bubble_wt0jb8").toURL()}
-                  alt={"Ikon för chattpunkten"}
+                  src={ImageHandler('Chat_Bubble_wt0jb8').toURL()}
+                  alt={'Ikon för chattpunkten'}
                   width={25}
                   height={25}
                 />
@@ -120,8 +120,8 @@ const Account = () => {
           <p className={styles.link}>
             <span className={styles.icon}>
               <Image
-                src={ImageHandler("People_t0mcog").toURL()}
-                alt={"Ikon för anhörigkollen"}
+                src={ImageHandler('People_t0mcog').toURL()}
+                alt={'Ikon för anhörigkollen'}
                 width={25}
                 height={25}
               />

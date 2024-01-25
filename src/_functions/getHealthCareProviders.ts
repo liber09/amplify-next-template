@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { healthcareProviderData } from '../../types/interfaces';
+import { healthcareProviderData } from '../types/interfaces';
 
 const BASE_URL = 'https://api.jsonbin.io/v3';
 

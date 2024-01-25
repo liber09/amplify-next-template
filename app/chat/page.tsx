@@ -1,11 +1,11 @@
-"use client"
-import React, { useState, useEffect } from "react";
-import ChatRoom from "@/app/_components/chatRoom/ChatRoom";
+'use client'
+import React, { useState, useEffect } from 'react';
+import ChatRoom from '@/src/_components/chatRoom/ChatRoom';
 import styles from './page.module.scss';
-import { healthcareProviderData, HealthcareProvider } from '../types/interfaces';
-import { getHealthCareProviderData } from "../api/healthcareProviders/getHealthCareProviders";
-import HealthcareProvidersDropdown from '../_components/chooseHealthCareCenter/chooseHealthCareCenter';
-import DynamicButton from '../_components/dynamicButton/dynamicButton';
+import { healthcareProviderData, HealthcareProvider } from '../../src/types/interfaces';
+import { getHealthCareProviderData } from '../../src/_functions/getHealthCareProviders'
+import HealthcareProvidersDropdown from '../../src/_components/chooseHealthCareCenter/chooseHealthCareCenter';
+import DynamicButton from '../../src/_components/dynamicButton/dynamicButton';
 
 const Chat: React.FC = () => {
   const [hasActiveChat, setHasActiveChat] = useState<boolean>(false);
@@ -28,7 +28,7 @@ const Chat: React.FC = () => {
         }
     
         const jsonData: healthcareProviderData = await getHealthCareProviderData(binId, apiKey);
-        console.log("jsonData: ", jsonData)
+        console.log('jsonData: ', jsonData)
         setHealthCareProviders(jsonData.record);
         setIsLoading(false);
       } catch (error) {
@@ -70,14 +70,14 @@ const Chat: React.FC = () => {
         <section key={JSON.stringify(healthCareProviders)}>
           <h1 className={styles.pageTitle}>
             {hasActiveChat
-              ? `Chat med ${selectedHealthcareProvider || "din vårdcentral"}`
-              : "Chatta med din vårdcentral"}
+              ? `Chat med ${selectedHealthcareProvider || 'din vårdcentral'}`
+              : 'Chatta med din vårdcentral'}
           </h1>
           <section className={styles.chatContent}>
             {!hasActiveChat && (
               <HealthcareProvidersDropdown healthcareProviders={healthCareProviders || []} setSelectedHealthcareProvider={setSelectedHealthcareProvider} />
             )}
-            <DynamicButton text="Starta chat" backgroundColor="#B0001E" onClick={startChat} />
+            <DynamicButton text='Starta chat' backgroundColor='#B0001E' onClick={startChat} />
             {hasActiveChat && selectedHealthcareProvider && <ChatRoom healthcareProvider={selectedHealthcareProvider} />}
           </section>
         </section>
