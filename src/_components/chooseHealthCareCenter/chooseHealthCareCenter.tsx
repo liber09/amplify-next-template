@@ -1,6 +1,6 @@
 import styles from './chooseHealthCareCenter.module.scss';
 import React, { useState, ChangeEvent } from 'react';
-import { HealthcareProvider } from '@/app/types/interfaces';
+import { HealthcareProvider } from '@/src/types/interfaces';
 
 interface HealthcareProvidersDropdownProps {
   healthcareProviders: HealthcareProvider[];
@@ -20,12 +20,12 @@ const HealthcareProvidersDropdown: React.FC<HealthcareProvidersDropdownProps> = 
   
     return (
       <div>
-        <label htmlFor="healthcareProvider"></label>
-        <select className={styles.dropDown} id="healthcareProvider" onChange={handleProviderChange}>
-          <option value="">Välj din vårdcentral...</option>
+        <label htmlFor='healthcareProvider'></label>
+        <select className={styles.dropDown} id='healthcareProvider' onChange={handleProviderChange}>
+          <option value=''>Välj din vårdcentral...</option>
           {healthcareProviders.map((provider) => (
             <option key={provider.id} value={provider.id}>
-              {provider.name + ", " + provider.city}
+              {provider.name + ', ' + provider.city}
             </option>
           ))}
         </select>

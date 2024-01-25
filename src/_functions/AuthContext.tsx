@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React, { createContext, useContext, useReducer, ReactNode, Dispatch } from 'react';
 
 type AuthState = {
@@ -13,7 +13,7 @@ const AuthContext = createContext<{ state: AuthState; dispatch: Dispatch<AuthAct
 const authReducer = (state: AuthState, action: AuthAction): AuthState => {
   switch (action.type) {
     case 'LOGIN':
-      console.log("authContext: ", action.identificationNumber)
+      console.log('authContext: ', action.identificationNumber)
       return {
         isAuthenticated: true,
         identificationNumber: action.identificationNumber,

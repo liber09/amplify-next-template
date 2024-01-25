@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React, { useState } from 'react';
 
 interface ChatInputProps {
@@ -22,7 +22,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ sendMessage }) => {
 
   return (
     <div>
-      <input type="text" value={text} onChange={handleInputChange} />
+      <input type='text' value={text} onChange={handleInputChange} />
       <button onClick={handleSendMessage}>Skicka</button>
     </div>
   );

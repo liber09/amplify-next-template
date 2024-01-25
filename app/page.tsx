@@ -31,8 +31,9 @@ export default function Home() {
         height={845} 
         width={1080}>
       </Image>
-      <a href='https://ellie-9694e4.zapier.app' target='_blank'>
+      
         <section className={styles.askEllie}>
+          <a href='https://ellie-9694e4.zapier.app' target='_blank'>
           <Image className={styles.ellieImage}
             src={ImageHandler('maskot_elefanten1_upto0i').toURL()} 
             alt='En bild på en tecknad elefant som står på bakbenen och håller upp ena frambenet och vinkar' 
@@ -41,6 +42,7 @@ export default function Home() {
             priority={true}>
             
           </Image>
+          </a>
           <p className={styles.askEllieTitle}>Fråga vår intellifant Ellie</p>
           <p className={styles.allergic}>Allergi?</p>
           <p className={styles.legPain}>Ont i benet?</p>
@@ -53,7 +55,7 @@ export default function Home() {
           width={500}>
           </Image>  
         </section>
-      </a>
+      
       <section className={styles.violence}>
         <Image className={styles.violenceImage}
           src={ImageHandler('brottsutsatt_uskanr').toURL()} 

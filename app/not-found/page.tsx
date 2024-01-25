@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 import styles from './page.module.scss';
 
 const NotFoundPage: React.FC = () => {

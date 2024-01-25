@@ -1,5 +1,5 @@
 import styles from './footer.module.scss';
-import React from "react";
+import React from 'react';
 import Link from 'next/link';
 
 export default function Footer() {

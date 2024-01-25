@@ -1,5 +1,5 @@
 // News.tsx
-"use client"
+'use client'
 import React, { useEffect, useState, FC } from 'react';
 import { NewsArticle, NewsInfoData } from '../../types/interfaces';
 import { getNewsInfoData } from '../../_functions/newsService'

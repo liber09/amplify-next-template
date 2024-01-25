@@ -1,4 +1,4 @@
-import {Cloudinary} from "@cloudinary/url-gen";
+import {Cloudinary} from '@cloudinary/url-gen';
 
 export default function ImageHandler(imageId: string){
     const cloud = new Cloudinary({cloud: {cloudName: 'dubvtauu4'}});
