@@ -1,11 +1,11 @@
 import React from "react"
 import Image from 'next/image'
 import styles from './page.module.scss'
-import Search from './_components/search/search'
-import ImageHandler from "./_functions/imageHandler"
-import ImageCarousel from "./_components/imageCarousel/imageCarousel"
-import News from "./_components/news/news"
-import Footer from "./_components/footer/footer"
+import Search from '../src/_components/search/search'
+import ImageHandler from "../src/_functions/imageHandler"
+import ImageCarousel from "../src/_components/imageCarousel/imageCarousel"
+import News from "../src/_components/news/news"
+import Footer from "../src/_components/footer/footer"
 
 export default function Home() {
   const images:string[] = [

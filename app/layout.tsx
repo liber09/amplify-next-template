@@ -3,9 +3,9 @@ import React from "react";
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.scss';
-import Header from './_components/header/header';
-import Menu from "./_components/menu/menu";
-import { AuthProvider } from "./_functions/AuthContext";
+import Header from '../src/_components/header/header';
+import Menu from "../src/_components/menu/menu";
+import { AuthProvider } from "../src/_functions/AuthContext";
 
 const inter = Inter({ subsets: ['latin'] })
 

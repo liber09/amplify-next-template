@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { NewsInfoData } from '../../types/interfaces';
+import { NewsInfoData } from '../types/interfaces';
 
 export const getNewsInfoData = async (): Promise<NewsInfoData> => {
   try {
