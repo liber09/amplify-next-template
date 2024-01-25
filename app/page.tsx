@@ -1,5 +1,10 @@
+"use client"
+import { generateClient } from "aws-amplify/data";
+import { type Schema } from "@/amplify/data/resource";
 import Image from 'next/image'
 import styles from './page.module.css'
+
+const client = generateClient<Schema>();
 
 export default function Home() {
   return (

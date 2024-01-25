@@ -1,0 +1,10 @@
+type Diseases @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  description: String
+  symptoms: [String]
+  actions: String
+  checkpoints: [String]
+  selfcare: [String]
+}
+ 
