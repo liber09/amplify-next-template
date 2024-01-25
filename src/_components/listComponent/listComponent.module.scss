@@ -1,0 +1,17 @@
+@import '/src/app/styles/variables.scss';
+
+.listContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.list{
+    list-style: disc;
+}
+
+.listItem{
+    @include paragraphText;
+    list-style: disc;
+}

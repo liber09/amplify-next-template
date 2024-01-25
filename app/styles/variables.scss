@@ -1,0 +1,66 @@
+//IMPORTS
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Roboto:wght@400;700&family=Revalia&family=Macondo+Swash+Caps&family=Syne+Tactile&display=swap');
+
+//BREAKPOINTS
+$bp-600: 600px;
+$bp-700: 700px;
+$bp-900: 900px;
+$bp-1000: 1000px;
+$bp-1100: 1100px;
+$bp-1280: 1280px;
+
+//COLORS
+$red: #B0001E;
+$blue: #4249F8;
+$white: #FFFFFF;
+$black: #000000;
+$light-gray: #e6e2e2;
+$c-hover: $blue;
+$c-link: #3366CC;
+$c-menuBackground: $red;
+
+//MARGINS
+$mg-huge: 40px;
+$mg-xxl: 25px;
+$mg-xl: 20px;
+$mg-large: 15px;
+$mg-medium: 10px;
+$mg-small: 5px;
+
+//Padding
+$pd-huge: 40px;
+$pd-xxl: 25px;
+$pd-xl: 20px;
+$pd-large: 15px;
+$pd-medium: 10px;
+$pd-small: 5px;
+
+//BORDER-RADIUS
+$br-small: 5px;
+$br-medium: 10px;
+
+//FONTS
+$f-MaShanZheng: 'Ma Shan Zheng';
+
+//MIXINS
+@mixin scalableImage{
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    margin: 0;
+}
+
+@mixin headLineText{
+    font-family: 'Macondo Swash Caps';
+    font-size: 36px;
+    text-align: center;
+}
+
+@mixin paragraphText{
+    font-family: 'Roboto';
+    font-size: 24px;
+}
+
+//OTHER
+$maxWidth: 1280px;
+

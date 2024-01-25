@@ -1,0 +1,18 @@
+@import '/src/app/styles/variables.scss';
+
+.diseasesContainer{
+    margin: $mg-huge;
+}
+.diseaseTitle{
+    @include headLineText;
+    font-size: 48px;
+}
+
+.text{
+    @include paragraphText;
+}
+
+.secondHeadline{
+    @include headLineText;
+    margin: $mg-huge 0 $mg-medium 0;
+}

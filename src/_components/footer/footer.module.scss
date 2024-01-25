@@ -1,0 +1,25 @@
+@import '/src/app/styles/variables.scss';
+
+.redSection{
+    background-color: $red;
+    height: 40px;
+    width: 100%;
+}
+
+.blueSection{  
+    background-color: $blue;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+.footerLink{
+    @include paragraphText;
+    color: $white;
+}

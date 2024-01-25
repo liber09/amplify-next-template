@@ -1,0 +1,10 @@
+@import '/src/app/styles/variables.scss';
+
+.newsItem{
+    padding: 10px;
+    text-align: center;
+}
+.newsLink{
+    @include paragraphText;
+    margin: $mg-large;
+}

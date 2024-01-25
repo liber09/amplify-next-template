@@ -1,0 +1,29 @@
+@import '/src/app/styles/variables.scss';
+
+.imageNameContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imageWrapper{
+    margin-top: $mg-medium;
+}
+
+
+.profileImage{
+    border-radius: 100px;
+    width: 180px;
+    height: 180px;
+}
+
+.medicalId{
+    @include paragraphText;
+    background-color: $red;
+    padding: $pd-medium;
+    color: $white;
+    font-weight: 700;
+}
+.userName{
+    @include headLineText;
+}

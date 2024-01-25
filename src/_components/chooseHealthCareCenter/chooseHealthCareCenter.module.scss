@@ -1,0 +1,18 @@
+@import '/src/app/styles/variables.scss';
+
+.dropDown{
+    @include paragraphText;
+    background-color: $light-gray;
+    padding: 1rem;
+    border-radius: $br-small;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.healthcareProviderTitle{
+    @include headLineText;
+}

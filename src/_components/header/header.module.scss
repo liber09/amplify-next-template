@@ -1,0 +1,65 @@
+@import '/src/app/styles/variables.scss';
+
+.sloganField{
+    background-color: $red;
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    @media (min-width: $bp-700){
+        height: 6em;
+    }
+}
+
+.slogan{
+    font-family: $f-MaShanZheng;
+    font-size: 24px;
+    color: $white;
+
+    @media (min-width: $bp-700){
+        font-size: 48px;
+    }
+}
+
+.largeLetter{
+    font-family: $f-MaShanZheng;
+    color: $white;
+    font-size: 48px;
+}
+
+.iconAndMenuContainer{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "logo menu menu menu menu";
+  }
+  .logo { 
+    grid-area: logo;
+    background-color: $white;
+
+ }
+  .menu { 
+    grid-area: menu; 
+    background-color: $blue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+} 
+
+.user{
+    height: 60px;
+    width: 60px;
+}
+
+.chat{
+    height: 60px;
+    width: 60px;
+}
+
+.hamburger{
+    height: 60px;
+    width: 60px;
+}

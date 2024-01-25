@@ -1,0 +1,17 @@
+@import '/src/app/styles/variables.scss';
+
+.expandableRow{
+    margin: $mg-large;
+}
+
+.rowHeader{
+    @include paragraphText;
+}
+
+.noteDate{
+    font-weight: 700;
+}
+
+.additionalInfo{
+    @include paragraphText;
+}

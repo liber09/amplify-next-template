@@ -1,0 +1,258 @@
+@import '/src/app/styles/variables.scss';
+
+@mixin ellieText {
+  @include paragraphText;
+  position: absolute;
+  color: $white;
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.emergency{
+  @include scalableImage;
+}
+
+.askEllie{
+  position: relative;
+}
+
+.ellieImage{
+  @include scalableImage;
+  display: block;
+}
+
+.askEllieTitle{
+  @include ellieText;
+  @include headLineText;
+  top: 10px; /* Adjust this value to set the distance from the top */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+}
+
+.allergic{
+  @include ellieText;
+  top: calc(50% - 50px); 
+  left: calc(100% - 80px); 
+  transform: translateY(-50%);
+}
+
+.legPain{
+  @include ellieText;
+  top: calc(50% + 100px); 
+  left: calc(100% - 140px); // Adjusted to the right
+  transform: translateY(-50%);
+  text-wrap: nowrap;
+}
+
+.cold{
+  @include ellieText;
+  top: calc(50% - 30px); 
+  left: calc(50% - 180px); // Adjusted to the right
+  transform: translateY(-50%);
+  text-wrap: nowrap;
+}
+
+.covid{
+  @include ellieText;
+  top: calc(50% + 65px); 
+  left: calc(50% - 150px); // Adjusted to the right
+  transform: translateY(-50%);
+  text-wrap: nowrap;
+}
+
+.heartAsk{
+  position:absolute;
+  top: calc(50% + 20px); 
+  left: calc(100% - 150px); // Adjusted to the right
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+}
+
+.violence{
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Macondo Swash Caps';
+  margin: $mg-xl;
+}
+
+.violenceImage{
+  height: auto;
+  width: auto;
+  max-width: 80%;
+  margin-top: 40px;
+  border-radius: 90px;
+  margin: $mg-large;
+}
+
+.sectionTitle{
+  @include headLineText;
+}
+
+.violenceText{
+  @include paragraphText;
+  text-align: center;
+}
+
+.findChatHealtCareCenter{
+  position: relative;
+}
+
+.healthCareCenterImage{
+  @include scalableImage;
+}
+
+.halfwayOverButton {
+  position: absolute;
+  bottom: - 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 30px;
+  background-color: $red;
+  color: $white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.textUnderImage{
+  @include paragraphText;
+  margin: $mg-xxl $mg-huge;
+}
+
+.hopelessImage{
+  @include scalableImage;
+}
+
+.tooMuch{
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 5px; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+.leftColumn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.rightColumn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tooMuchImage{
+  height: auto;
+  width: auto;
+  max-width: 80%;
+  margin-top: $mg-medium;
+}
+
+.oneGlassTooMuch{
+  @include headLineText;
+  margin-bottom: $mg-small;
+}
+
+.notAlone{
+  @include paragraphText;
+  margin: $mg-medium $mg-small;
+}
+
+.alcoholText{
+  @include paragraphText;
+  text-align: center;
+  grid-column: span 2;
+  margin: $mg-small;
+}
+.alcoholContact{
+  @include paragraphText;
+  text-align: center;
+  grid-column: span 2;
+}
+
+.searchAssociations{
+  position: relative;
+}
+.searchAssociationsImage{
+  @include scalableImage;
+}
+.associationsSearch{
+  position: absolute;
+  top: 80px;
+  left: 95px;
+  width: 200px;
+}
+
+.sadnessContainer{
+  margin:0;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sadnessImage{
+  @include scalableImage;
+  margin: 0;
+  width: 100%;
+}
+
+.sadnessText{
+  @include paragraphText;
+  margin:0;
+  background-color: #131313;
+}
+
+.largeLetter{
+  color: $white;
+  font-size: 48px;
+  margin: 0;
+}
+
+.lightACandle{
+  margin-left: 50px;
+  margin-bottom: 0;
+}
+
+.missing{
+  margin-left: 80px;
+  margin-top: 0;
+}
+.memoryPage{
+  margin-left: 30px;
+}
+
+.physiotherapistContainer{
+  position: relative;
+}
+
+.physiotherapistImage{
+  @include scalableImage;
+}
+
+.physiotherapistText{
+  @include paragraphText;
+  margin: $mg-huge $mg-large;
+}
+
+.trainingHeadline{
+  @include headLineText;
+}
+
+.trainingText{
+  @include paragraphText;
+  margin: $mg-large;
+}

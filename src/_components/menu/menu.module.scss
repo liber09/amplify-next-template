@@ -1,0 +1,171 @@
+
+@import '/src/app/styles/variables.scss';
+
+@mixin burger_menu_line{
+    width: 3em;
+    height: 0.4em;
+    border-radius: 0.2em;
+    background-color: $black;
+    display: block;
+    content: "";
+}
+
+//MENU OPEN
+.main_nav_open{
+    display: block;
+    background-color: rgba(white, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+
+.main_nav_toggle_open{
+    position: absolute;
+    z-index: 999998;
+    transform: rotate(45deg);
+    background-color: $white;
+    top: 4em;
+    right: 2em;
+    width: 3em;
+    height: 0.4em;
+    border-radius: 0.2em;
+    border: none;
+    
+    &::before{
+        z-index: 999999;
+        position: absolute;
+        transform: rotate(90deg);
+        top: 0;
+        right: 0;
+        @include burger_menu_line;
+        background-color: $white;
+    }
+
+    &::after{
+        display: none;
+    }
+}
+
+.main_menu_open{
+    background-color: $c-menuBackground;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    right: 1em;
+    bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 1em rgba(black, 0.4);
+    animation: main_menu_reveal 0.3s 0.2s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes main_menu_reveal {
+    from{
+        opacity: 0;
+        transform: scale(0.1);
+    }
+
+    to{
+        opacity: 1;
+        transform: scale(1.0);
+    }
+}
+
+.main_menu_item_open{
+    list-style-type: none;
+    font-size: 25px;;
+    color:white;
+    padding: 0 0 20px 0;
+    margin: 0 0 10px 0;
+    font-size: 2em;
+    transition: color 0.2s;
+    &:hover{
+      color: $c-hover;
+    }
+}
+
+//MENU CLOSED
+.main_nav{  
+    @media (min-width: $bp-700){
+        display: block;
+        background-color: $c-menuBackground;
+        padding-top: 2rem;
+    }
+}
+
+.main_nav_toggle{
+    display: block;
+    position: absolute;
+    top: 9em;
+    right: 3.3em;
+    @include burger_menu_line;
+    
+    /* Reset button styling*/
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    display: block;
+
+    transition: top 0.5s, right 0.5s, transform 0.5s;
+
+    &::before{
+        position: relative;
+        top: 0.8em;
+        @include burger_menu_line;
+        transition: transform 0.5s;
+    }
+
+    &::after{
+        @include burger_menu_line;
+        position: relative;
+        top: 1.2em;
+    }
+    @media (min-width: $bp-600){
+        right: 5em;
+    }
+    @media (min-width: $bp-700){
+        display: none;
+    }
+}
+
+.main_menu{
+    display: none;
+
+    @media (min-width: $bp-700){
+        margin: 0;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+.main_menu_item{
+    list-style-type: none;
+    color:white;
+    padding: 0 0 20px 0;
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+    transition: color 0.2s;
+    &:hover{
+      color: $c-hover;
+    }
+
+    @media (min-width: $bp-700){
+        font-size: 14px;
+    }
+    @media (min-width: $bp-900){
+        font-size: 18px;
+    }
+    @media (min-width: $bp-1100){
+        font-size: 23px;
+    }
+}
+
+.link{
+    text-decoration: none;
+}

@@ -1,0 +1,63 @@
+@import '/src/app/styles/variables.scss';
+
+.linksContainer{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.column{
+    @include paragraphText;
+    color: $c-link;
+    display:flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: center;
+    margin-left: $mg-small;
+}
+
+.icon{
+    margin-right: $mg-small;
+}
+.calendarSection{
+    margin-top: $mg-large;
+}
+.myCalendar{
+    @include headLineText;
+    text-align: left;
+    margin-left: $mg-medium;
+}
+
+.calendarContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.associationsNewsSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: $mg-large;
+}
+
+.assosiationsTitle{
+    @include headLineText;
+    margin-bottom: $mg-large;
+}
+.assosiationTitle{
+    @include paragraphText;
+    color: $c-link;
+    text-align: left;
+}
+.assosiationText{
+    @include paragraphText;
+    color: $c-link;
+    margin: 0;
+}
+
