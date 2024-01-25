@@ -1,4 +1,5 @@
 import { defineAuth } from '@aws-amplify/backend';
+import {secret} from '@aws-amplify/backend'
 
 /**
  * Define and configure your auth resource
@@ -15,10 +16,12 @@ export const auth = defineAuth({
        * then, import `secret` from `@aws-amplify/backend`
        * @see https://docs.amplify.aws/gen2/deploy-and-host/sandbox-environments/features/#setting-secrets
        */
-      // loginWithAmazon: {
-      //   clientId: secret('LOGINWITHAMAZON_CLIENT_ID'),
-      //   clientSecret: secret('LOGINWITHAMAZON_CLIENT_SECRET'),
-      // }
+       loginWithAmazon: {
+         clientId: secret('id'),
+         clientSecret: secret('secret'),
+       },
+       callbackUrls: ['http://localhost:3000'],
+       logoutUrls: ['http://localhost:3000'],
     },
   },
   /**
