@@ -1,7 +1,7 @@
 import styles from './header.module.scss';
 import React from "react";
 import Image from 'next/image';
-import ImageHandler from '@/app/_functions/imageHandler';
+import ImageHandler from '@/src/_functions/imageHandler';
 import Link from 'next/link';
 
 export default function Header() {

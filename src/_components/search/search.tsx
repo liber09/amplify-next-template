@@ -1,7 +1,7 @@
 import React from "react"
 import styles from './search.module.scss';
 import Image from 'next/image';
-import ImageHandler from '@/app/_functions/imageHandler';
+import ImageHandler from '@/src/_functions/imageHandler';
 
 export default function Search() {
     return ( 

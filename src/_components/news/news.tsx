@@ -2,7 +2,7 @@
 "use client"
 import React, { useEffect, useState, FC } from 'react';
 import { NewsArticle, NewsInfoData } from '../../types/interfaces';
-import { getNewsInfoData } from '../../api/news/newsService';
+import { getNewsInfoData } from '../../_functions/newsService'
 import styles from './news.module.scss'
 
 interface NewsProps {
