@@ -1,37 +1,45 @@
 'use client'
-import React, { createContext, useContext, useReducer, ReactNode, Dispatch } from 'react';
+import React, { createContext, useContext, useReducer, ReactNode, Dispatch, useState } from 'react';
+import handleSignOut from './auth-signout';
+import handleSignIn from './auth-signin';
 
 type AuthState = {
   isAuthenticated: boolean;
-  identificationNumber: string | null;
 };
 
-type AuthAction = { type: 'LOGIN'; identificationNumber: string } | { type: 'LOGOUT' };
-
+type AuthAction = { type: 'LOGIN'; userName: string; password: string } | { type: 'LOGOUT' };
 const AuthContext = createContext<{ state: AuthState; dispatch: Dispatch<AuthAction> } | undefined>(undefined);
 
 const authReducer = (state: AuthState, action: AuthAction): AuthState => {
   switch (action.type) {
     case 'LOGIN':
-      console.log('authContext: ', action.identificationNumber)
       return {
         isAuthenticated: true,
-        identificationNumber: action.identificationNumber,
       };
     case 'LOGOUT':
-      return { isAuthenticated: false, identificationNumber: null };
+      handleSignOut();
+      return { isAuthenticated: false };
     default:
       return state;
   }
 };
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
   const [state, dispatch] = useReducer(authReducer, {
     isAuthenticated: false,
-    identificationNumber: null,
-  })
+  });
 
-  return <AuthContext.Provider value={{ state, dispatch }}>{children}</AuthContext.Provider>;
+  const enhancedDispatch: Dispatch<AuthAction> = async (action) => {
+    if (action.type === 'LOGIN') {
+      setIsSignedIn(await handleSignIn({ username: action.userName, password: action.password }));
+    }
+
+    dispatch(action);
+  };
+
+  return <AuthContext.Provider value={{ state, dispatch: enhancedDispatch }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {

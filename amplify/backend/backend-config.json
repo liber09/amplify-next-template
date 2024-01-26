@@ -30,5 +30,95 @@
       "service": "Cognito",
       "serviceType": "imported"
     }
+  },
+  "parameters": {
+    "AMPLIFY_auth_amplifynexttemplate_allowUnauthenticatedIdentities": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amplifynexttemplate"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amplifynexttemplate_authRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amplifynexttemplate"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amplifynexttemplate_authRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amplifynexttemplate"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amplifynexttemplate_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amplifynexttemplate"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amplifynexttemplate_identityPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amplifynexttemplate"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amplifynexttemplate_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amplifynexttemplate"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amplifynexttemplate_unauthRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amplifynexttemplate"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amplifynexttemplate_unauthRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amplifynexttemplate"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amplifynexttemplate_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amplifynexttemplate"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amplifynexttemplate_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amplifynexttemplate"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amplifynexttemplate_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amplifynexttemplate"
+        }
+      ]
+    }
   }
 }

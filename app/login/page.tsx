@@ -1,7 +1,5 @@
 'use client'
 import { useState } from 'react';
-import Image from 'next/image';
-import ImageHandler from '../../src/_functions/imageHandler';
 import styles from './page.module.scss'
 import DynamicButton from '../../src/_components/dynamicButton/dynamicButton';
 import { useAuth } from '../../src/_functions/AuthContext';
@@ -10,43 +8,47 @@ import { useRouter } from 'next/navigation';
 const Login:React.FC = () => {
   const {dispatch} = useAuth();
   const router = useRouter();
-  const [inputValue, setInputValue] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
   
   const handleLogin = () => {
-    if (inputValue.length === 12) {
-      console.log('login: ', inputValue);
-      dispatch({ type: 'LOGIN', identificationNumber: inputValue });
+      dispatch({ type: 'LOGIN', userName: userName, password: password });
       router.push('/account');
-    } else {
-      setErrorMessage('Vänligen ange ditt personnummer med 12 siffror');
-    }
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const sanitizedValue = event.target.value.replace(/[^0-9]/g, '');
-    setInputValue(sanitizedValue);
-    setErrorMessage('');
+  const handleCreateNewAccount = () => {
+    router.push('/signup');
+};
+
+  const handleUserNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserName(event.target.value);
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
   };
 
   return (
     <section className={styles.loginContainer}>
-      <Image className={styles.bankIdLogo}
-        src={ImageHandler('BankID_logo_jsncyl').toURL()} 
-        alt='Bild med en utryckande ambulans och texten vid livshotande tillstånd, ring 112' 
-        height={515} 
-        width={620}>
-      </Image>
 
       <input 
         className={styles.textField} 
         type='text'
-        placeholder='ÅÅÅÅMMDDNNNN'
-        value={inputValue}
-        onChange={handleInputChange}
+        placeholder='Användarnamn'
+        value={userName}
+        onChange={handleUserNameChange}
       />
-      {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-      <DynamicButton text={'Logga in'} onClick={handleLogin}></DynamicButton>
+      <input 
+        className={styles.textField} 
+        type='password'
+        placeholder='Lösenord'
+        value={password}
+        onChange={handlePasswordChange}
+      />
+
+      <DynamicButton text={'Logga in'} backgroundColor='#B0001E' onClick={handleLogin}></DynamicButton>
+
+      <DynamicButton text={'Registrera dig'} onClick={handleCreateNewAccount}></DynamicButton>
       
     </section>
   );

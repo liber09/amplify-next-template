@@ -6,9 +6,7 @@
   "usernameAttributes": [
     "email"
   ],
-  "authProvidersUserPool": [
-    "LoginWithAmazon"
-  ],
+  "authProvidersUserPool": [],
   "requiredAttributes": [
     "email"
   ],

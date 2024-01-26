@@ -16,6 +16,7 @@ const DynamicButton: FC<DynamicButtonProps> = ({ text, backgroundColor, onClick 
     cursor: 'pointer',
     fontFamily: 'Roboto',
     fontSize: '24px',
+    boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)',
   };
 
   return (

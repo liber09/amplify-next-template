@@ -34,14 +34,14 @@ export default function Home() {
       
         <section className={styles.askEllie}>
           <a href='https://ellie-9694e4.zapier.app' target='_blank'>
-          <Image className={styles.ellieImage}
-            src={ImageHandler('maskot_elefanten1_upto0i').toURL()} 
-            alt='En bild på en tecknad elefant som står på bakbenen och håller upp ena frambenet och vinkar' 
-            height={1080} 
-            width={1080}
-            priority={true}>
-            
-          </Image>
+            <Image className={styles.ellieImage}
+              src={ImageHandler('maskot_elefanten1_upto0i').toURL()} 
+              alt='En bild på en tecknad elefant som står på bakbenen och håller upp ena frambenet och vinkar' 
+              height={1080} 
+              width={1080}
+              priority={true}>
+              
+            </Image>
           </a>
           <p className={styles.askEllieTitle}>Fråga vår intellifant Ellie</p>
           <p className={styles.allergic}>Allergi?</p>

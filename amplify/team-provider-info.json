@@ -14,6 +14,21 @@
     "categories": {
       "api": {
         "amplifynexttemplate": {}
+      },
+      "auth": {
+        "amplifynexttemplate": {
+          "userPoolId": "eu-north-1_atbbpowEk",
+          "userPoolName": "amplifyAuthUserPool4BA7F805-eDr23GEm7rDC",
+          "webClientId": "911q2j14jdk7qc5ta1pta441d",
+          "nativeClientId": "911q2j14jdk7qc5ta1pta441d",
+          "identityPoolId": "eu-north-1:e948682c-d1a1-4ff0-a23b-d65865b2a8ae",
+          "identityPoolName": "amplifyAuthIdentityPool3FDE84CC_WreBPg7kI0My",
+          "allowUnauthenticatedIdentities": true,
+          "authRoleArn": "arn:aws:iam::381492116290:role/amplify-d3qoeybqwjc9qr-ma-amplifyAuthauthenticatedU-UoxxLC6yBab4",
+          "authRoleName": "amplify-d3qoeybqwjc9qr-ma-amplifyAuthauthenticatedU-UoxxLC6yBab4",
+          "unauthRoleArn": "arn:aws:iam::381492116290:role/amplify-d3qoeybqwjc9qr-ma-amplifyAuthunauthenticate-dfq3h01Ir8PI",
+          "unauthRoleName": "amplify-d3qoeybqwjc9qr-ma-amplifyAuthunauthenticate-dfq3h01Ir8PI"
+        }
       }
     }
   }
