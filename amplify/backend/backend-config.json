@@ -11,8 +11,9 @@
           ],
           "defaultAuthentication": {
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "description": "api key description"
+              "apiKeyExpirationDate": "2025-01-25T02:29:15.121Z",
+              "apiKeyExpirationDays": 365,
+              "description": "graphql-api-key"
             },
             "authenticationType": "API_KEY"
           }
@@ -29,6 +30,14 @@
       "providerPlugin": "awscloudformation",
       "service": "Cognito",
       "serviceType": "imported"
+    }
+  },
+  "function": {
+    "getMyHealth": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {

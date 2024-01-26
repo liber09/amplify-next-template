@@ -29,6 +29,9 @@
           "unauthRoleArn": "arn:aws:iam::381492116290:role/amplify-d3qoeybqwjc9qr-ma-amplifyAuthunauthenticate-dfq3h01Ir8PI",
           "unauthRoleName": "amplify-d3qoeybqwjc9qr-ma-amplifyAuthunauthenticate-dfq3h01Ir8PI"
         }
+      },
+      "function": {
+        "getMyHealth": {}
       }
     }
   }
