@@ -1,0 +1,43 @@
+@import '../styles/variables.scss';
+.page{
+    height: 85vh;
+}
+
+.sides{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.pageContent{
+    display: grid; 
+    grid-template-columns: 20% 60% 20%; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+        ". . ."; 
+    justify-content: center; 
+    align-items: center;
+    margin: 0 auto; 
+}
+
+.diaryPost{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include paragraphText;
+    color: white;
+    text-align: center;
+}
+
+.button{
+    width: 80%;
+    color: white;
+    background-color: $red;
+    border-radius: $br-medium;
+    box-shadow: $defaultShadow;
+
+}

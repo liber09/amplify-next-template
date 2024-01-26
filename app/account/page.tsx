@@ -13,11 +13,11 @@ import 'react-calendar/dist/Calendar.css';
 
 const Account = () => { 
   const { state } = useAuth();
-  console.log('account: ', state.identificationNumber);
+  console.log('account: ', state.isAuthenticated);
   return (
     <AuthenticatedComponent>
       <section>
-        <ImageName identificationNumber={state.identificationNumber}></ImageName>
+        <ImageName identificationNumber={"image"}></ImageName>
       </section>
       <section className={styles.linksContainer}>
         <article className={styles.column}>
@@ -69,17 +69,19 @@ const Account = () => {
               Journaler
             </p>
           </Link>
-          <p className={styles.link}>
-            <span className={styles.diary}>
-              <Image
-                src={ImageHandler('Spiral_Bound_Booklet_drpanh').toURL()}
-                alt={'Ikon för dagboken'}
-                width={25}
-                height={25}
-              />
-            </span>
-            Dagboken
-          </p>
+          <Link href={'/diary'}>
+            <p className={styles.link}>
+              <span className={styles.diary}>
+                <Image
+                  src={ImageHandler('Spiral_Bound_Booklet_drpanh').toURL()}
+                  alt={'Ikon för dagboken'}
+                  width={25}
+                  height={25}
+                />
+              </span>
+              Dagboken
+            </p>
+          </Link>
         </article>
         <article className={styles.column}>
           <p className={styles.link}>
