@@ -45,7 +45,6 @@ const Diary: React.FC = () => {
             <button className={styles.button} onClick={handlePrev}>Bakåt</button>
         </article>
         <article className={styles.diaryPost} key={currentIndex}>
-          {/* Render content for the current index */}
           <h2>{diaryPosts[currentIndex]?.date}</h2>
           <p>{diaryPosts[currentIndex]?.text}</p>
         </article>
