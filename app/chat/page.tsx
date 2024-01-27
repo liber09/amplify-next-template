@@ -41,7 +41,7 @@ const Chat: React.FC = () => {
 
   useEffect(() => {
     console.log('Healthcare Providers Data:', healthCareProviders);
-  }, [healthCareProviders]);
+  }, []);
 
   useEffect(() => {
     
@@ -70,12 +70,12 @@ const Chat: React.FC = () => {
         <section key={JSON.stringify(healthCareProviders)}>
           <h1 className={styles.pageTitle}>
             {hasActiveChat
-              ? `Chat med ${selectedHealthcareProvider || 'din vårdcentral'}`
+              ? `Chat med ${selectedHealthcareProvider?.name || 'din vårdcentral'}`
               : 'Chatta med din vårdcentral'}
           </h1>
           <section className={styles.chatContent}>
-            {!hasActiveChat && (
-              <HealthcareProvidersDropdown healthcareProviders={healthCareProviders || []} setSelectedHealthcareProvider={setSelectedHealthcareProvider} />
+            {!hasActiveChat && healthCareProviders !== null && (
+              <HealthcareProvidersDropdown healthcareProviders={healthCareProviders} setSelectedHealthcareProvider={setSelectedHealthcareProvider} />
             )}
             <DynamicButton text='Starta chat' backgroundColor='#B0001E' onClick={startChat} />
             {hasActiveChat && selectedHealthcareProvider && <ChatRoom healthcareProvider={selectedHealthcareProvider} />}

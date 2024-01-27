@@ -38,17 +38,7 @@ export default function Menu() {
                         </li>
                     </Link>
             )}
-            <Link href='/account' onClick={handleLinkClick} className={styles.link}>
-  <li className={isOpen === false ? styles.main_menu_item : styles.main_menu_item_open}>
-    {state.isAuthenticated ? (
-      <span onClick={handleLogout}>Logga ut</span>
-    ) : (
-      <Link href='/login'>
-        <span>Logga in</span>
-      </Link>
-    )}
-  </li>
-</Link>
+            
 
             <Link href={'/diseases'}>Sjukdomar</Link>
           </menu>

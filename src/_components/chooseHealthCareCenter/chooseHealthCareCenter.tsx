@@ -15,7 +15,7 @@ const HealthcareProvidersDropdown: React.FC<HealthcareProvidersDropdownProps> = 
     const handleProviderChange = (event: ChangeEvent<HTMLSelectElement>) => {
       const selectedId = event.target.value;
       const provider = healthcareProviders.find((p) => p.id === selectedId) || null;
-      setSelectedProvider(provider);      
+      setSelectedProvider(provider);
     };
   
     return (
