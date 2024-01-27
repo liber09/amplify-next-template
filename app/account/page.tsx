@@ -95,17 +95,19 @@ const Account = () => {
             </span>
             Mailboxen
           </p>
-          <p className={styles.link}>
-            <span className={styles.icon}>
-              <Image
-                src={ImageHandler('icon__Identification_Card__f1wret').toURL()}
-                alt={'Ikon för kontakboken'}
-                width={25}
-                height={20}
-              />
-            </span>
-            Kontaktboken
-          </p>
+          <Link href={'/contactBook'}>
+            <p className={styles.link}>
+              <span className={styles.icon}>
+                <Image
+                  src={ImageHandler('icon__Identification_Card__f1wret').toURL()}
+                  alt={'Ikon för kontakboken'}
+                  width={25}
+                  height={20}
+                />
+              </span>
+              Kontaktboken
+            </p>
+          </Link>
           <Link href={'/chat'}>
             <p className={styles.link}>
               <span className={styles.icon}>

@@ -1,0 +1,31 @@
+@import '../styles/variables.scss';
+
+.contactBookContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: $mg-large;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.addButton{
+    margin: $mg-large $mg-large $mg-large auto;
+    background-color: $red;
+    font-family: 'roboto';
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    padding: $pd-medium;
+    border-radius: $br-medium;
+    border: 0;
+    box-shadow: $defaultShadow;
+
+    
+}
+

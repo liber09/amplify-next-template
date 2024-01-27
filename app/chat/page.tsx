@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import ChatRoom from '@/src/_components/chatRoom/ChatRoom';
 import styles from './page.module.scss';
 import { healthcareProviderData, HealthcareProvider } from '../../src/types/interfaces';
@@ -12,6 +12,7 @@ const Chat: React.FC = () => {
   const [healthCareProviders, setHealthCareProviders] = useState<HealthcareProvider[] | null>(null);
   const [selectedHealthcareProvider, setSelectedHealthcareProvider] = useState<HealthcareProvider | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [selectedProvider, setSelectedProvider] = useState<HealthcareProvider | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +30,7 @@ const Chat: React.FC = () => {
     
         const jsonData: healthcareProviderData = await getHealthCareProviderData(binId, apiKey);
         console.log('jsonData: ', jsonData)
-        setHealthCareProviders(jsonData.record);
+        setHealthCareProviders(jsonData);
         setIsLoading(false);
       } catch (error) {
         console.error('Error fetching healthcare provider data:', error);
@@ -60,6 +61,15 @@ const Chat: React.FC = () => {
     setHasActiveChat(true);
   };
 
+  const handleProviderChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const selectedId = event.target.value;
+    if (healthCareProviders !== null){
+      const provider = healthCareProviders.find((p) => p.id === selectedId) || null;
+    setSelectedProvider(provider);
+    }
+  };
+
+
   return (
     <>
       {isLoading ? (
@@ -74,9 +84,16 @@ const Chat: React.FC = () => {
               : 'Chatta med din vårdcentral'}
           </h1>
           <section className={styles.chatContent}>
-            {!hasActiveChat && healthCareProviders !== null && (
-              <HealthcareProvidersDropdown healthcareProviders={healthCareProviders} setSelectedHealthcareProvider={setSelectedHealthcareProvider} />
-            )}
+          {!hasActiveChat && healthCareProviders !== null && (
+            <select className={styles.dropDown} id='healthcareProvider' onChange={handleProviderChange}>
+              <option value=''>Välj din vårdcentral...</option>
+              {healthCareProviders.map((provider) => (
+                <option key={provider.id} value={provider.id}>
+                  {provider.name + ', ' + provider.city}
+                </option>
+              ))}
+            </select>
+          )}
             <DynamicButton text='Starta chat' backgroundColor='#B0001E' onClick={startChat} />
             {hasActiveChat && selectedHealthcareProvider && <ChatRoom healthcareProvider={selectedHealthcareProvider} />}
           </section>
