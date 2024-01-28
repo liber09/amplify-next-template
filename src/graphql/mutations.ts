@@ -8,54 +8,66 @@ type GeneratedMutation<InputType, OutputType> = string & {
   __generatedMutationOutput: OutputType;
 };
 
-export const createTodo = /* GraphQL */ `mutation CreateTodo(
-  $input: CreateTodoInput!
-  $condition: ModelTodoConditionInput
+export const createDiseases = /* GraphQL */ `mutation CreateDiseases(
+  $input: CreateDiseasesInput!
+  $condition: ModelDiseasesConditionInput
 ) {
-  createTodo(input: $input, condition: $condition) {
+  createDiseases(input: $input, condition: $condition) {
     id
     name
     description
+    symptoms
+    actions
+    checkpoints
+    selfcare
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.CreateTodoMutationVariables,
-  APITypes.CreateTodoMutation
+  APITypes.CreateDiseasesMutationVariables,
+  APITypes.CreateDiseasesMutation
 >;
-export const updateTodo = /* GraphQL */ `mutation UpdateTodo(
-  $input: UpdateTodoInput!
-  $condition: ModelTodoConditionInput
+export const updateDiseases = /* GraphQL */ `mutation UpdateDiseases(
+  $input: UpdateDiseasesInput!
+  $condition: ModelDiseasesConditionInput
 ) {
-  updateTodo(input: $input, condition: $condition) {
+  updateDiseases(input: $input, condition: $condition) {
     id
     name
     description
+    symptoms
+    actions
+    checkpoints
+    selfcare
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.UpdateTodoMutationVariables,
-  APITypes.UpdateTodoMutation
+  APITypes.UpdateDiseasesMutationVariables,
+  APITypes.UpdateDiseasesMutation
 >;
-export const deleteTodo = /* GraphQL */ `mutation DeleteTodo(
-  $input: DeleteTodoInput!
-  $condition: ModelTodoConditionInput
+export const deleteDiseases = /* GraphQL */ `mutation DeleteDiseases(
+  $input: DeleteDiseasesInput!
+  $condition: ModelDiseasesConditionInput
 ) {
-  deleteTodo(input: $input, condition: $condition) {
+  deleteDiseases(input: $input, condition: $condition) {
     id
     name
     description
+    symptoms
+    actions
+    checkpoints
+    selfcare
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.DeleteTodoMutationVariables,
-  APITypes.DeleteTodoMutation
+  APITypes.DeleteDiseasesMutationVariables,
+  APITypes.DeleteDiseasesMutation
 >;

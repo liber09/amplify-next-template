@@ -40,6 +40,12 @@
       "service": "Lambda"
     }
   },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
+    }
+  },
   "parameters": {
     "AMPLIFY_auth_amplifynexttemplate_allowUnauthenticatedIdentities": {
       "usedBy": [
@@ -126,6 +132,22 @@
         {
           "category": "auth",
           "resourceName": "amplifynexttemplate"
+        }
+      ]
+    },
+    "AMPLIFY_function_getMyHealth_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getMyHealth"
+        }
+      ]
+    },
+    "AMPLIFY_function_getMyHealth_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getMyHealth"
         }
       ]
     }

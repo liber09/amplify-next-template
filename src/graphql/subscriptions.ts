@@ -8,45 +8,57 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType;
 };
 
-export const onCreateTodo = /* GraphQL */ `subscription OnCreateTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onCreateTodo(filter: $filter) {
+export const onCreateDiseases = /* GraphQL */ `subscription OnCreateDiseases($filter: ModelSubscriptionDiseasesFilterInput) {
+  onCreateDiseases(filter: $filter) {
     id
     name
     description
+    symptoms
+    actions
+    checkpoints
+    selfcare
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateTodoSubscriptionVariables,
-  APITypes.OnCreateTodoSubscription
+  APITypes.OnCreateDiseasesSubscriptionVariables,
+  APITypes.OnCreateDiseasesSubscription
 >;
-export const onUpdateTodo = /* GraphQL */ `subscription OnUpdateTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onUpdateTodo(filter: $filter) {
+export const onUpdateDiseases = /* GraphQL */ `subscription OnUpdateDiseases($filter: ModelSubscriptionDiseasesFilterInput) {
+  onUpdateDiseases(filter: $filter) {
     id
     name
     description
+    symptoms
+    actions
+    checkpoints
+    selfcare
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateTodoSubscriptionVariables,
-  APITypes.OnUpdateTodoSubscription
+  APITypes.OnUpdateDiseasesSubscriptionVariables,
+  APITypes.OnUpdateDiseasesSubscription
 >;
-export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onDeleteTodo(filter: $filter) {
+export const onDeleteDiseases = /* GraphQL */ `subscription OnDeleteDiseases($filter: ModelSubscriptionDiseasesFilterInput) {
+  onDeleteDiseases(filter: $filter) {
     id
     name
     description
+    symptoms
+    actions
+    checkpoints
+    selfcare
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteTodoSubscriptionVariables,
-  APITypes.OnDeleteTodoSubscription
+  APITypes.OnDeleteDiseasesSubscriptionVariables,
+  APITypes.OnDeleteDiseasesSubscription
 >;

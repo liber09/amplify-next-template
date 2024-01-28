@@ -4,6 +4,7 @@ import styles from './page.module.scss'
 import DynamicButton from '../../src/_components/dynamicButton/dynamicButton';
 import { useAuth } from '../../src/_functions/AuthContext';
 import { useRouter } from 'next/navigation';
+import { AuthenticationDetails, CognitoUser, CognitoUserPool, CognitoUserSession } from 'amazon-cognito-identity-js';
 
 const Login:React.FC = () => {
   const {dispatch} = useAuth();
@@ -12,8 +13,54 @@ const Login:React.FC = () => {
   const [password, setPassword] = useState('');
   
   const handleLogin = () => {
-      dispatch({ type: 'LOGIN', userName: userName, password: password });
-      router.push('/account');
+    const poolData = {
+      UserPoolId: 'eu-north-1_atbbpowEk',
+      ClientId: '911q2j14jdk7qc5ta1pta441d',
+    };
+
+    const userPool = new CognitoUserPool(poolData);
+
+    const authenticationData = {
+      Username: userName,
+      Password: password,
+    };
+
+    const authenticationDetails = new AuthenticationDetails(authenticationData);
+
+    const userData = {
+      Username: userName,
+      Pool: userPool,
+    };
+
+    const cognitoUser = new CognitoUser(userData);
+
+    cognitoUser.authenticateUser(authenticationDetails, {
+      onSuccess: (session: CognitoUserSession) => {
+        // Successfully signed in
+        const accessToken = session.getAccessToken().getJwtToken();
+        console.log('Access Token:', accessToken);
+
+        // Access user information from the session
+        const jwtPayload = accessToken.split('.')[1];
+        const decodedJwt = JSON.parse(atob(jwtPayload));
+
+        console.log('User ID:', decodedJwt.sub);
+        console.log('Username:', decodedJwt.username);
+        console.log(decodedJwt.given_name + ' ' + decodedJwt.family_name);
+        // ... other user attributes
+
+        // Dispatch user information or perform other actions as needed
+        dispatch({ type: 'LOGIN', userName: userName, password: password });
+
+        // Redirect to the account page
+        router.push('/account');
+      },
+      onFailure: (err) => {
+        // Handle sign-in failure
+        console.error('Sign-in error:', err);
+        // You might want to display an error message to the user
+      },
+    });
   };
 
   const handleCreateNewAccount = () => {

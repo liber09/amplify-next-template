@@ -31,7 +31,13 @@
         }
       },
       "function": {
-        "getMyHealth": {}
+        "getMyHealth": {
+          "deploymentBucketName": "amplify-amplifynexttemplate-dev-180145-deployment",
+          "s3Key": "amplify-builds/getMyHealth-766379527a4e43454d69-build.zip"
+        }
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   }

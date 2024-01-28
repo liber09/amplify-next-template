@@ -2,14 +2,14 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import ChatRoom from '@/src/_components/chatRoom/ChatRoom';
 import styles from './page.module.scss';
-import { healthcareProviderData, HealthcareProvider } from '../../src/types/interfaces';
+import { HealthcareProvider } from '../../src/types/interfaces';
 import { getHealthCareProviderData } from '../../src/_functions/getHealthCareProviders'
 import HealthcareProvidersDropdown from '../../src/_components/chooseHealthCareCenter/chooseHealthCareCenter';
 import DynamicButton from '../../src/_components/dynamicButton/dynamicButton';
 
 const Chat: React.FC = () => {
   const [hasActiveChat, setHasActiveChat] = useState<boolean>(false);
-  const [healthCareProviders, setHealthCareProviders] = useState<HealthcareProvider[] | null>(null);
+  const [healthCareProviders, setHealthCareProviders] = useState<HealthcareProvider[]>([]);
   const [selectedHealthcareProvider, setSelectedHealthcareProvider] = useState<HealthcareProvider | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [selectedProvider, setSelectedProvider] = useState<HealthcareProvider | null>(null);
@@ -28,7 +28,7 @@ const Chat: React.FC = () => {
           return;
         }
     
-        const jsonData: healthcareProviderData = await getHealthCareProviderData(binId, apiKey);
+        const jsonData: HealthcareProvider[] = await getHealthCareProviderData(binId, apiKey);
         console.log('jsonData: ', jsonData)
         setHealthCareProviders(jsonData);
         setIsLoading(false);

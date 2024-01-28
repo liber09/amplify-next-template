@@ -2,18 +2,26 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateTodoInput = {
+export type CreateDiseasesInput = {
   id?: string | null,
   name: string,
   description?: string | null,
+  symptoms?: Array< string | null > | null,
+  actions?: string | null,
+  checkpoints?: Array< string | null > | null,
+  selfcare?: Array< string | null > | null,
 };
 
-export type ModelTodoConditionInput = {
+export type ModelDiseasesConditionInput = {
   name?: ModelStringInput | null,
   description?: ModelStringInput | null,
-  and?: Array< ModelTodoConditionInput | null > | null,
-  or?: Array< ModelTodoConditionInput | null > | null,
-  not?: ModelTodoConditionInput | null,
+  symptoms?: ModelStringInput | null,
+  actions?: ModelStringInput | null,
+  checkpoints?: ModelStringInput | null,
+  selfcare?: ModelStringInput | null,
+  and?: Array< ModelDiseasesConditionInput | null > | null,
+  or?: Array< ModelDiseasesConditionInput | null > | null,
+  not?: ModelDiseasesConditionInput | null,
 };
 
 export type ModelStringInput = {
@@ -56,32 +64,44 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type Todo = {
-  __typename: "Todo",
+export type Diseases = {
+  __typename: "Diseases",
   id: string,
   name: string,
   description?: string | null,
+  symptoms?: Array< string | null > | null,
+  actions?: string | null,
+  checkpoints?: Array< string | null > | null,
+  selfcare?: Array< string | null > | null,
   createdAt: string,
   updatedAt: string,
 };
 
-export type UpdateTodoInput = {
+export type UpdateDiseasesInput = {
   id: string,
   name?: string | null,
   description?: string | null,
+  symptoms?: Array< string | null > | null,
+  actions?: string | null,
+  checkpoints?: Array< string | null > | null,
+  selfcare?: Array< string | null > | null,
 };
 
-export type DeleteTodoInput = {
+export type DeleteDiseasesInput = {
   id: string,
 };
 
-export type ModelTodoFilterInput = {
+export type ModelDiseasesFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
   description?: ModelStringInput | null,
-  and?: Array< ModelTodoFilterInput | null > | null,
-  or?: Array< ModelTodoFilterInput | null > | null,
-  not?: ModelTodoFilterInput | null,
+  symptoms?: ModelStringInput | null,
+  actions?: ModelStringInput | null,
+  checkpoints?: ModelStringInput | null,
+  selfcare?: ModelStringInput | null,
+  and?: Array< ModelDiseasesFilterInput | null > | null,
+  or?: Array< ModelDiseasesFilterInput | null > | null,
+  not?: ModelDiseasesFilterInput | null,
 };
 
 export type ModelIDInput = {
@@ -100,18 +120,22 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type ModelTodoConnection = {
-  __typename: "ModelTodoConnection",
-  items:  Array<Todo | null >,
+export type ModelDiseasesConnection = {
+  __typename: "ModelDiseasesConnection",
+  items:  Array<Diseases | null >,
   nextToken?: string | null,
 };
 
-export type ModelSubscriptionTodoFilterInput = {
+export type ModelSubscriptionDiseasesFilterInput = {
   id?: ModelSubscriptionIDInput | null,
   name?: ModelSubscriptionStringInput | null,
   description?: ModelSubscriptionStringInput | null,
-  and?: Array< ModelSubscriptionTodoFilterInput | null > | null,
-  or?: Array< ModelSubscriptionTodoFilterInput | null > | null,
+  symptoms?: ModelSubscriptionStringInput | null,
+  actions?: ModelSubscriptionStringInput | null,
+  checkpoints?: ModelSubscriptionStringInput | null,
+  selfcare?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionDiseasesFilterInput | null > | null,
+  or?: Array< ModelSubscriptionDiseasesFilterInput | null > | null,
 };
 
 export type ModelSubscriptionIDInput = {
@@ -144,83 +168,103 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array< string | null > | null,
 };
 
-export type CreateTodoMutationVariables = {
-  input: CreateTodoInput,
-  condition?: ModelTodoConditionInput | null,
+export type CreateDiseasesMutationVariables = {
+  input: CreateDiseasesInput,
+  condition?: ModelDiseasesConditionInput | null,
 };
 
-export type CreateTodoMutation = {
-  createTodo?:  {
-    __typename: "Todo",
+export type CreateDiseasesMutation = {
+  createDiseases?:  {
+    __typename: "Diseases",
     id: string,
     name: string,
     description?: string | null,
+    symptoms?: Array< string | null > | null,
+    actions?: string | null,
+    checkpoints?: Array< string | null > | null,
+    selfcare?: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type UpdateTodoMutationVariables = {
-  input: UpdateTodoInput,
-  condition?: ModelTodoConditionInput | null,
+export type UpdateDiseasesMutationVariables = {
+  input: UpdateDiseasesInput,
+  condition?: ModelDiseasesConditionInput | null,
 };
 
-export type UpdateTodoMutation = {
-  updateTodo?:  {
-    __typename: "Todo",
+export type UpdateDiseasesMutation = {
+  updateDiseases?:  {
+    __typename: "Diseases",
     id: string,
     name: string,
     description?: string | null,
+    symptoms?: Array< string | null > | null,
+    actions?: string | null,
+    checkpoints?: Array< string | null > | null,
+    selfcare?: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type DeleteTodoMutationVariables = {
-  input: DeleteTodoInput,
-  condition?: ModelTodoConditionInput | null,
+export type DeleteDiseasesMutationVariables = {
+  input: DeleteDiseasesInput,
+  condition?: ModelDiseasesConditionInput | null,
 };
 
-export type DeleteTodoMutation = {
-  deleteTodo?:  {
-    __typename: "Todo",
+export type DeleteDiseasesMutation = {
+  deleteDiseases?:  {
+    __typename: "Diseases",
     id: string,
     name: string,
     description?: string | null,
+    symptoms?: Array< string | null > | null,
+    actions?: string | null,
+    checkpoints?: Array< string | null > | null,
+    selfcare?: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type GetTodoQueryVariables = {
+export type GetDiseasesQueryVariables = {
   id: string,
 };
 
-export type GetTodoQuery = {
-  getTodo?:  {
-    __typename: "Todo",
+export type GetDiseasesQuery = {
+  getDiseases?:  {
+    __typename: "Diseases",
     id: string,
     name: string,
     description?: string | null,
+    symptoms?: Array< string | null > | null,
+    actions?: string | null,
+    checkpoints?: Array< string | null > | null,
+    selfcare?: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type ListTodosQueryVariables = {
-  filter?: ModelTodoFilterInput | null,
+export type ListDiseasesQueryVariables = {
+  filter?: ModelDiseasesFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListTodosQuery = {
-  listTodos?:  {
-    __typename: "ModelTodoConnection",
+export type ListDiseasesQuery = {
+  listDiseases?:  {
+    __typename: "ModelDiseasesConnection",
     items:  Array< {
-      __typename: "Todo",
+      __typename: "Diseases",
       id: string,
       name: string,
       description?: string | null,
+      symptoms?: Array< string | null > | null,
+      actions?: string | null,
+      checkpoints?: Array< string | null > | null,
+      selfcare?: Array< string | null > | null,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -228,46 +272,58 @@ export type ListTodosQuery = {
   } | null,
 };
 
-export type OnCreateTodoSubscriptionVariables = {
-  filter?: ModelSubscriptionTodoFilterInput | null,
+export type OnCreateDiseasesSubscriptionVariables = {
+  filter?: ModelSubscriptionDiseasesFilterInput | null,
 };
 
-export type OnCreateTodoSubscription = {
-  onCreateTodo?:  {
-    __typename: "Todo",
+export type OnCreateDiseasesSubscription = {
+  onCreateDiseases?:  {
+    __typename: "Diseases",
     id: string,
     name: string,
     description?: string | null,
+    symptoms?: Array< string | null > | null,
+    actions?: string | null,
+    checkpoints?: Array< string | null > | null,
+    selfcare?: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnUpdateTodoSubscriptionVariables = {
-  filter?: ModelSubscriptionTodoFilterInput | null,
+export type OnUpdateDiseasesSubscriptionVariables = {
+  filter?: ModelSubscriptionDiseasesFilterInput | null,
 };
 
-export type OnUpdateTodoSubscription = {
-  onUpdateTodo?:  {
-    __typename: "Todo",
+export type OnUpdateDiseasesSubscription = {
+  onUpdateDiseases?:  {
+    __typename: "Diseases",
     id: string,
     name: string,
     description?: string | null,
+    symptoms?: Array< string | null > | null,
+    actions?: string | null,
+    checkpoints?: Array< string | null > | null,
+    selfcare?: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnDeleteTodoSubscriptionVariables = {
-  filter?: ModelSubscriptionTodoFilterInput | null,
+export type OnDeleteDiseasesSubscriptionVariables = {
+  filter?: ModelSubscriptionDiseasesFilterInput | null,
 };
 
-export type OnDeleteTodoSubscription = {
-  onDeleteTodo?:  {
-    __typename: "Todo",
+export type OnDeleteDiseasesSubscription = {
+  onDeleteDiseases?:  {
+    __typename: "Diseases",
     id: string,
     name: string,
     description?: string | null,
+    symptoms?: Array< string | null > | null,
+    actions?: string | null,
+    checkpoints?: Array< string | null > | null,
+    selfcare?: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
