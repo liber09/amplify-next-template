@@ -24,12 +24,31 @@
     }
   },
   "auth": {
-    "amplifynexttemplate": {
+    "amplifynexttemplate916a331e": {
       "customAuth": false,
       "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
       "providerPlugin": "awscloudformation",
-      "service": "Cognito",
-      "serviceType": "imported"
+      "service": "Cognito"
     }
   },
   "function": {
@@ -47,94 +66,6 @@
     }
   },
   "parameters": {
-    "AMPLIFY_auth_amplifynexttemplate_allowUnauthenticatedIdentities": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "amplifynexttemplate"
-        }
-      ]
-    },
-    "AMPLIFY_auth_amplifynexttemplate_authRoleArn": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "amplifynexttemplate"
-        }
-      ]
-    },
-    "AMPLIFY_auth_amplifynexttemplate_authRoleName": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "amplifynexttemplate"
-        }
-      ]
-    },
-    "AMPLIFY_auth_amplifynexttemplate_identityPoolId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "amplifynexttemplate"
-        }
-      ]
-    },
-    "AMPLIFY_auth_amplifynexttemplate_identityPoolName": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "amplifynexttemplate"
-        }
-      ]
-    },
-    "AMPLIFY_auth_amplifynexttemplate_nativeClientId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "amplifynexttemplate"
-        }
-      ]
-    },
-    "AMPLIFY_auth_amplifynexttemplate_unauthRoleArn": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "amplifynexttemplate"
-        }
-      ]
-    },
-    "AMPLIFY_auth_amplifynexttemplate_unauthRoleName": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "amplifynexttemplate"
-        }
-      ]
-    },
-    "AMPLIFY_auth_amplifynexttemplate_userPoolId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "amplifynexttemplate"
-        }
-      ]
-    },
-    "AMPLIFY_auth_amplifynexttemplate_userPoolName": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "amplifynexttemplate"
-        }
-      ]
-    },
-    "AMPLIFY_auth_amplifynexttemplate_webClientId": {
-      "usedBy": [
-        {
-          "category": "auth",
-          "resourceName": "amplifynexttemplate"
-        }
-      ]
-    },
     "AMPLIFY_function_getMyHealth_deploymentBucketName": {
       "usedBy": [
         {
