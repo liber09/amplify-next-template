@@ -14,8 +14,8 @@ const Login:React.FC = () => {
   
   const handleLogin = () => {
     const poolData = {
-      UserPoolId: 'eu-north-1_BHvYuD0Sd',
-      ClientId: '3dpbpo8qqao62m2v5c51cnbf55',
+      UserPoolId: 'eu-north-1_vgPyAh1sC',
+      ClientId: '419l7467pt918maoa0jevg4uo8',
     };
 
     const userPool = new CognitoUserPool(poolData);

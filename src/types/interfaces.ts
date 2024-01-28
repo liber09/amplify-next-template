@@ -6,9 +6,6 @@ export interface HealthcareProvider {
     postalCode: string;
     phone: string;
 }
-export interface healthcareProviderData {
-    record: HealthcareProvider[] | null;
-}
 export interface NewsArticle {
     id: number;
     headLine: string;
