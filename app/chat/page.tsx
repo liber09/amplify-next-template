@@ -11,11 +11,11 @@ import { Channel, Chat, Message, MixedTextTypedElement, TimetokenUtils, User  } 
 const userData = [
   {
     id: "support-agent",
-    data: { name: "John (Support Agent)", custom: { initials: "SA", avatar: "#9fa7df" } },
+    data: { name: "John (Support Agent)", custom: { initials: "SA", avatar: "#59B9FF" } },
   },
   {
     id: "supported-user",
-    data: { name: "Mary Watson", custom: { initials: "MW", avatar: "#ffab91" } },
+    data: { name: "Mary Watson", custom: { initials: "MW", avatar: "#F28496" } },
   },
 ]
 const randomizedUsers = Math.random() < 0.5 ? userData : userData.reverse()
@@ -47,6 +47,8 @@ const ChatPage: React.FC = () => {
 
   useEffect(() => {
     if (!channel) return
+    const users = channel.getMembers()
+    console.log(users);
     return channel.connect((message) => setMessages((messages) => [...messages, message]))
   }, [channel])
 
@@ -186,16 +188,18 @@ const ChatPage: React.FC = () => {
           })}
         </ol>
       </section>
-
-      <form className="message-input" onSubmit={handleSend}>
+      
+      <form className={styles.postMessageContainer} onSubmit={handleSend}>
         <input
+          className={styles.messageInput}
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Send message"
+          placeholder="Skicka meddelande"
         />
-        <input type="submit" value="➔" onClick={handleSend} style={{ color: text && "#de2440" }} />
+        <input className={styles.sendButton} type="submit" value="Skicka" onClick={handleSend} />
       </form>
+
     </main>
   );
 };
