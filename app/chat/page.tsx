@@ -150,9 +150,9 @@ const ChatPage: React.FC = () => {
 
   return (
     <main>
-      <header>
-        <h3>{channel.name}</h3>
-        <h3>{chat.currentUser.name}</h3>
+      <header className={styles.chatRoomHeader}>
+        <h3 className={styles.chatRoomTitle}>{channel.name}</h3>
+        <h3 className={styles.userName}>{chat.currentUser.name}</h3>
       </header>
 
       <section className="message-list" ref={messageListRef}>

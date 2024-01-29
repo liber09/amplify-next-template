@@ -21,3 +21,11 @@
     margin-top: $mg-huge;
     
 }
+.chatRoomTitle{
+    @include headLineText;
+}
+
+.userName{
+    margin-top: $mg-large;
+    @include paragraphText;
+}

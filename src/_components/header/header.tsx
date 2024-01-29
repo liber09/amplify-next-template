@@ -43,15 +43,7 @@ export default function Header() {
                                 width={40}
                             />
                         </Link>
-                        <Link href={'/'}>
-                            <Image
-                                className={styles.hamburger}
-                                src={hamburgerIconUrl}
-                                alt='hamburger button'
-                                height={50}
-                                width={50}
-                            />
-                        </Link>
+                        <article className={styles.menuPlaceHolder}></article>
                     </div>
                 </div>
             </header>
