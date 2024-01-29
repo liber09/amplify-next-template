@@ -149,35 +149,54 @@ const ChatPage: React.FC = () => {
 
 
   return (
-    <>
-      {isLoading ? (
-        <section className={styles.loadingContainer}>
-          <p className={styles.loadText}>Laddar...</p>
-        </section>
-      ) : (
-        <section key={JSON.stringify(healthCareProviders)}>
-          <h1 className={styles.pageTitle}>
-            {hasActiveChat
-              ? `Chat med ${selectedHealthcareProvider?.name || 'din vårdcentral'}`
-              : 'Chatta med din vårdcentral'}
-          </h1>
-          <section className={styles.chatContent}>
-          {!hasActiveChat && healthCareProviders !== null && (
-            <select className={styles.dropDown} id='healthcareProvider' onChange={handleProviderChange}>
-              <option value=''>Välj din vårdcentral...</option>
-              {healthCareProviders.map((provider) => (
-                <option key={provider.id} value={provider.id}>
-                  {provider.name + ', ' + provider.city}
-                </option>
-              ))}
-            </select>
-          )}
-            <DynamicButton text='Starta chat' backgroundColor='#B0001E' onClick={startChat} />
-            {hasActiveChat && selectedHealthcareProvider && <ChatRoom healthcareProvider={selectedHealthcareProvider} />}
-          </section>
-        </section>
-      )}
-    </>
+    <main>
+      <header>
+        <h3>{channel.name}</h3>
+        <h3>{chat.currentUser.name}</h3>
+      </header>
+
+      <section className="message-list" ref={messageListRef}>
+        <ol>
+          {messages.map((message) => {
+            const user = users.find((user) => user.id === message.userId)
+            return (
+              <li key={message.timetoken}>
+                <aside style={{ background: String(user?.custom?.avatar) }}>
+                  {user?.custom?.initials}
+                </aside>
+                <article>
+                  <h3>
+                    {user?.name}
+                    <time>
+                      {TimetokenUtils.timetokenToDate(message.timetoken).toLocaleTimeString([], {
+                        timeStyle: "short",
+                      })}
+                    </time>
+                  </h3>
+                  <p>
+                    {message
+                      .getLinkedText()
+                      .map((messagePart: MixedTextTypedElement, i: number) => (
+                        <span key={String(i)}>{renderMessagePart(messagePart)}</span>
+                      ))}
+                  </p>
+                </article>
+              </li>
+            )
+          })}
+        </ol>
+      </section>
+
+      <form className="message-input" onSubmit={handleSend}>
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Send message"
+        />
+        <input type="submit" value="➔" onClick={handleSend} style={{ color: text && "#de2440" }} />
+      </form>
+    </main>
   );
 };
 export default ChatPage;
