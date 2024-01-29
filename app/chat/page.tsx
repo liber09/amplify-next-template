@@ -92,60 +92,60 @@ const ChatPage: React.FC = () => {
 
   if (!chat || !channel) return <p>Loading...</p>
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const binId = process.env.NEXT_PUBLIC_HC_PROVIDERS_BIN_ID;
-        const apiKey = process.env.NEXT_PUBLIC_JSONBIN_API_KEY;
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const binId = process.env.NEXT_PUBLIC_HC_PROVIDERS_BIN_ID;
+  //       const apiKey = process.env.NEXT_PUBLIC_JSONBIN_API_KEY;
     
-        console.log('BIN ID:', binId);
-        console.log('API Key:', apiKey);
+  //       console.log('BIN ID:', binId);
+  //       console.log('API Key:', apiKey);
     
-        if (!binId || !apiKey) {
-          console.error('Healthcare provider API credentials are missing.');
-          return;
-        }
+  //       if (!binId || !apiKey) {
+  //         console.error('Healthcare provider API credentials are missing.');
+  //         return;
+  //       }
     
-        const jsonData: HealthcareProvider[] = await getHealthCareProviderData(binId, apiKey);
-        console.log('jsonData: ', jsonData)
-        setHealthCareProviders(jsonData);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error fetching healthcare provider data:', error);
-        setIsLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
+  //       const jsonData: HealthcareProvider[] = await getHealthCareProviderData(binId, apiKey);
+  //       console.log('jsonData: ', jsonData)
+  //       setHealthCareProviders(jsonData);
+  //       setIsLoading(false);
+  //     } catch (error) {
+  //       console.error('Error fetching healthcare provider data:', error);
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
-  useEffect(() => {
-    console.log('Healthcare Providers Data:', healthCareProviders);
-  }, []);
+  // useEffect(() => {
+  //   console.log('Healthcare Providers Data:', healthCareProviders);
+  // }, []);
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    const checkActiveChat = () => {
+  //   const checkActiveChat = () => {
       
-      setTimeout(() => {
-        const isChatActive = false;
-        setHasActiveChat(isChatActive);
-      }, 1000); 
-    };
+  //     setTimeout(() => {
+  //       const isChatActive = false;
+  //       setHasActiveChat(isChatActive);
+  //     }, 1000); 
+  //   };
 
-    checkActiveChat();
-  }, []); 
+  //   checkActiveChat();
+  // }, []); 
 
-  const startChat = () => {
-    setHasActiveChat(true);
-  };
+  // const startChat = () => {
+  //   setHasActiveChat(true);
+  // };
 
-  const handleProviderChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const selectedId = event.target.value;
-    if (healthCareProviders !== null){
-      const provider = healthCareProviders.find((p) => p.id === selectedId) || null;
-    setSelectedProvider(provider);
-    }
-  };
+  // const handleProviderChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  //   const selectedId = event.target.value;
+  //   if (healthCareProviders !== null){
+  //     const provider = healthCareProviders.find((p) => p.id === selectedId) || null;
+  //   setSelectedProvider(provider);
+  //   }
+  // };
 
 
   return (
