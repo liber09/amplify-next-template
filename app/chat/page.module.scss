@@ -17,6 +17,17 @@
     height: 100%;
 }
 
+.dropDown{
+    @include paragraphText;
+    background-color: $light-gray;
+    padding: 1rem;
+    border-radius: $br-small;
+    width: 80%;
+    margin: $mg-large;
+    border: none;
+    box-shadow: $defaultShadow;
+}
+
 .messageList{
     margin: $mg-large;
 }
