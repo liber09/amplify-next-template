@@ -23,7 +23,6 @@ const randomizedUsers = Math.random() < 0.5 ? userData : userData.reverse()
 const ChatPage: React.FC = () => {
   const [hasActiveChat, setHasActiveChat] = useState<boolean>(false);
   const [healthCareProviders, setHealthCareProviders] = useState<HealthcareProvider[]>([]);
-  const [selectedHealthcareProvider, setSelectedHealthcareProvider] = useState<HealthcareProvider | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [selectedProvider, setSelectedProvider] = useState<HealthcareProvider | null>(null);
   const [chat, setChat] = useState<Chat>();
@@ -62,13 +61,15 @@ const ChatPage: React.FC = () => {
 
   useEffect(() => {
     if (!channel) return
-    const users = channel.getMembers()
-    console.log(users);
+    console.log('Channel in useEffect with channel as dependency')
+    console.log(channel.name);
+    const users = channel.getMembers();
     return channel.connect((message) => setMessages((messages) => [...messages, message]))
   }, [channel])
 
   useEffect(() => {
     async function initalizeChat() {
+
       const chat = await Chat.init({
         publishKey: process.env.PUBNUB_PUB_KEY,
         subscribeKey: process.env.PUBNUB_SUB_KEY,
@@ -80,7 +81,7 @@ const ChatPage: React.FC = () => {
         (await chat.createUser(randomizedUsers[1].id, randomizedUsers[1].data))
       const { channel } = await chat.createDirectConversation({
         user: interlocutor,
-        channelData: { name: "Support Channel" },
+        channelData: { name: 'support channel'},
       })
       setChat(chat)
       setUsers([currentUser, interlocutor])
@@ -88,7 +89,7 @@ const ChatPage: React.FC = () => {
     }
 
     initalizeChat()
-  }, [])
+  }, [selectedProvider])
 
   const renderMessagePart = useCallback((messagePart: MixedTextTypedElement) => {
     if (messagePart.type === "text") {
@@ -149,33 +150,33 @@ const ChatPage: React.FC = () => {
             <h3 className={styles.userName}>{chat.currentUser.name}</h3>
           </header>
   
-          <section className="message-list" ref={messageListRef}>
+          <section className={styles.messageList} ref={messageListRef}>
             <ol>
               {messages.map((message) => {
                 const user = users.find((user) => user.id === message.userId)
                 return (
+                  <article className={styles.chatMessage}style={{ background: String(user?.custom?.avatar) }} >
                   <li key={message.timetoken}>
-                    <aside style={{ background: String(user?.custom?.avatar) }}>
-                      {user?.custom?.initials}
-                    </aside>
-                    <article>
-                      <h3>
-                        {user?.name}
-                        <time>
-                          {TimetokenUtils.timetokenToDate(message.timetoken).toLocaleTimeString([], {
-                            timeStyle: "short",
-                          })}
-                        </time>
-                      </h3>
-                      <p>
-                        {message
-                          .getLinkedText()
-                          .map((messagePart: MixedTextTypedElement, i: number) => (
-                            <span key={String(i)}>{renderMessagePart(messagePart)}</span>
-                          ))}
-                      </p>
-                    </article>
-                  </li>
+
+                      <article>
+                        <h3>
+                          {user?.name}
+                          <time>
+                            {TimetokenUtils.timetokenToDate(message.timetoken).toLocaleTimeString([], {
+                              timeStyle: "short",
+                            })}
+                          </time>
+                        </h3>
+                        <p>
+                          {message
+                            .getLinkedText()
+                            .map((messagePart: MixedTextTypedElement, i: number) => (
+                              <span key={String(i)}>{renderMessagePart(messagePart)}</span>
+                            ))}
+                        </p>
+                      </article>
+                    </li>
+                  </article>
                 )
               })}
             </ol>
@@ -212,7 +213,7 @@ const ChatPage: React.FC = () => {
               </select>
             )}
             <DynamicButton text='Starta chat' backgroundColor='#B0001E' onClick={startChat} />
-            {hasActiveChat && selectedHealthcareProvider && <ChatRoom healthcareProvider={selectedHealthcareProvider} />}
+            {hasActiveChat && selectedProvider && <ChatRoom healthcareProvider={selectedProvider} />}
           </section>
         </section>
       )}

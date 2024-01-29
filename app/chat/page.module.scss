@@ -16,6 +16,10 @@
     justify-content: center;
     height: 100%;
 }
+
+.messageList{
+    margin: $mg-large;
+}
 .loadText{
     @include headLineText;
     margin-top: $mg-huge;
@@ -37,6 +41,14 @@
     align-items: center;
     width: 100%;
 }
+
+.chatMessage{
+    width: 90%;
+    border-radius: $br-medium;
+    margin: $mg-medium;
+    padding: $pd-medium;
+}
+
 .messageInput{
     @include paragraphText;
     width: 80%;
@@ -47,6 +59,7 @@
     box-shadow: $defaultShadow;
     margin: $mg-large;
 }
+
 .sendButton{
     @include paragraphText;
     background-color: $red;
