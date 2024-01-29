@@ -16,8 +16,58 @@
     justify-content: center;
     height: 100%;
 }
+
+.messageList{
+    margin: $mg-large;
+}
 .loadText{
     @include headLineText;
     margin-top: $mg-huge;
     
+}
+.chatRoomTitle{
+    @include headLineText;
+    margin-top: $mg-large;
+}
+
+.userName{
+    margin-top: $mg-large;
+    @include paragraphText;
+}
+.postMessageContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.chatMessage{
+    width: 90%;
+    border-radius: $br-medium;
+    margin: $mg-medium;
+    padding: $pd-medium;
+}
+
+.messageInput{
+    @include paragraphText;
+    width: 80%;
+    background-color: $gray;
+    border: 0;
+    padding: $pd-large;
+    border-radius: $br-medium;
+    box-shadow: $defaultShadow;
+    margin: $mg-large;
+}
+
+.sendButton{
+    @include paragraphText;
+    background-color: $red;
+    color: $white;
+    padding: $pd-medium;
+    border: 0;
+    border-radius: $br-medium;
+    width: 150px;
+    box-shadow: $defaultShadow
+
 }
