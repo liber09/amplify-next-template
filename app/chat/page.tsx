@@ -7,11 +7,12 @@ import { getHealthCareProviderData } from '../../src/_functions/getHealthCarePro
 import HealthcareProvidersDropdown from '../../src/_components/chooseHealthCareCenter/chooseHealthCareCenter';
 import DynamicButton from '../../src/_components/dynamicButton/dynamicButton';
 import { Channel, Chat, Message, MixedTextTypedElement, TimetokenUtils, User  } from '@pubnub/chat';
+import { name } from '@cloudinary/url-gen/actions/namedTransformation';
 
 const userData = [
   {
     id: "support-agent",
-    data: { name: "John (Support Agent)", custom: { initials: "SA", avatar: "#59B9FF" } },
+    data: { name: "John (Doktor)", custom: { initials: "SA", avatar: "#59B9FF" } },
   },
   {
     id: "supported-user",
@@ -81,7 +82,7 @@ const ChatPage: React.FC = () => {
         (await chat.createUser(randomizedUsers[1].id, randomizedUsers[1].data))
       const { channel } = await chat.createDirectConversation({
         user: interlocutor,
-        channelData: { name: 'support channel'},
+        channelData: { name: 'CapioVC'},
       })
       setChat(chat)
       setUsers([currentUser, interlocutor])
@@ -108,20 +109,7 @@ const ChatPage: React.FC = () => {
     return ""
   }, [])
 
-  if (!chat || !channel) return <p>Loading...</p>
-
-  // useEffect(() => {
-    
-  //   const checkActiveChat = () => {
-      
-  //     setTimeout(() => {
-  //       const isChatActive = false;
-  //       setHasActiveChat(isChatActive);
-  //     }, 1000); 
-  //   };
-
-  //   checkActiveChat();
-  // }, []); 
+  if (!chat || !channel) return <p>Laddar...</p>
 
   const startChat = () => {
     setHasActiveChat(true);
@@ -132,8 +120,17 @@ const ChatPage: React.FC = () => {
     if (healthCareProviders !== null){
       const provider = healthCareProviders.find((p) => p.id === selectedId) || null;
     setSelectedProvider(provider);
+    if (provider !== null){
+      updateChannelName(provider);
     }
   };
+}
+  const updateChannelName = (provider:HealthcareProvider) => {
+    channel.update({
+      name: provider?.name + ' ' + provider?.city
+    }
+    );
+  }
 
 
   return (
@@ -146,7 +143,8 @@ const ChatPage: React.FC = () => {
         // Render the second part when there is an active chat
         <main>
           <header className={styles.chatRoomHeader}>
-            <h3 className={styles.chatRoomTitle}>{'Chat med ' + selectedProvider?.name + ', ' + selectedProvider?.city}</h3>
+            {/* <h3 className={styles.chatRoomTitle}>{'Chat med ' + selectedProvider?.name + ', ' + selectedProvider?.city}</h3> */}
+            <h3 className={styles.chatRoomTitle}>{channel.name}</h3>
             <h3 className={styles.userName}>{chat.currentUser.name}</h3>
           </header>
   
