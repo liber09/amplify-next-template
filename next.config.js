@@ -20,6 +20,9 @@ const nextConfig = {
     AWS_ACCESSKEY_I: process.env.NEXT_PUBLIC_AWS_ACCESSKEY_ID,
     AWS_ACCESSKEY: process.env.NEXT_PUBLIC_AWS_ACCESSKEY,
     AWS_REGION: process.env.NEXT_PUBLIC_AWS_REGION,
+    PUBNUB_PUB_KEY: process.env.NEXT_PUBLIC_PUBNUB_PUB_KEY,
+    PUBNUB_SUB_KEY: process.env.NEXT_PUBLIC_PUBNUB_SUB_KEY,
+    
 
   },
 };

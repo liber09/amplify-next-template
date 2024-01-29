@@ -6,13 +6,28 @@ import { HealthcareProvider } from '../../src/types/interfaces';
 import { getHealthCareProviderData } from '../../src/_functions/getHealthCareProviders'
 import HealthcareProvidersDropdown from '../../src/_components/chooseHealthCareCenter/chooseHealthCareCenter';
 import DynamicButton from '../../src/_components/dynamicButton/dynamicButton';
+import { Chat } from '@pubnub/chat';
 
-const Chat: React.FC = () => {
+const ChatPage: React.FC = () => {
   const [hasActiveChat, setHasActiveChat] = useState<boolean>(false);
   const [healthCareProviders, setHealthCareProviders] = useState<HealthcareProvider[]>([]);
   const [selectedHealthcareProvider, setSelectedHealthcareProvider] = useState<HealthcareProvider | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [selectedProvider, setSelectedProvider] = useState<HealthcareProvider | null>(null);
+  const [chat, setChat] = useState<Chat>()
+
+  useEffect(() => {
+    const publishKey = "";
+    const subscribeKey = "";
+    const userId = "";
+
+    Chat.init({
+      publishKey,
+      subscribeKey,
+      userId,
+      typingTimeout: 3000,
+    }).then(setChat);
+    })
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,4 +117,4 @@ const Chat: React.FC = () => {
     </>
   );
 };
-export default Chat;
+export default ChatPage;
