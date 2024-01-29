@@ -8,11 +8,13 @@ export default function Header() {
     const medimeLogoUrl = ImageHandler('MEDIME_6_1_nrdlgp').toURL();
     const userIconUrl = ImageHandler('User_ceeohs').toURL();
     const chatIconUrl = ImageHandler('Chat_Bubble_yk1mvt').toURL();
-    const hamburgerIconUrl = ImageHandler('Menu_e6umko').toURL();
 
     return (
         <>
             <header className={styles.container}>
+                <div className={styles.sloganField}>
+                    <p><span className={styles.largeLetter}>D</span>är du behöver det -<span className={styles.largeLetter}>N</span>är du behöver det</p>
+                </div>
                 <div className={styles.iconAndMenuContainer}>
                     <div className={styles.logo}>
                         <Link href={'/'}>
