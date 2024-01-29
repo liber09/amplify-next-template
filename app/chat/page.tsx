@@ -1,12 +1,24 @@
 'use client'
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect, useRef, ChangeEvent } from 'react';
 import ChatRoom from '@/src/_components/chatRoom/ChatRoom';
 import styles from './page.module.scss';
 import { HealthcareProvider } from '../../src/types/interfaces';
 import { getHealthCareProviderData } from '../../src/_functions/getHealthCareProviders'
 import HealthcareProvidersDropdown from '../../src/_components/chooseHealthCareCenter/chooseHealthCareCenter';
 import DynamicButton from '../../src/_components/dynamicButton/dynamicButton';
-import { Chat } from '@pubnub/chat';
+import { Channel, Chat, Message, MixedTextTypedElement, TimetokenUtils, User  } from '@pubnub/chat';
+
+const userData = [
+  {
+    id: "support-agent",
+    data: { name: "John (Support Agent)", custom: { initials: "SA", avatar: "#9fa7df" } },
+  },
+  {
+    id: "supported-user",
+    data: { name: "Mary Watson", custom: { initials: "MW", avatar: "#ffab91" } },
+  },
+]
+const randomizedUsers = Math.random() < 0.5 ? userData : userData.reverse()
 
 const ChatPage: React.FC = () => {
   const [hasActiveChat, setHasActiveChat] = useState<boolean>(false);
@@ -14,20 +26,52 @@ const ChatPage: React.FC = () => {
   const [selectedHealthcareProvider, setSelectedHealthcareProvider] = useState<HealthcareProvider | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [selectedProvider, setSelectedProvider] = useState<HealthcareProvider | null>(null);
-  const [chat, setChat] = useState<Chat>()
+  const [chat, setChat] = useState<Chat>();
+  const [text, setText] = useState("");
+  const [users, setUsers] = useState<User[]>([]);
+  const [channel, setChannel] = useState<Channel>();
+  const [messages, setMessages] = useState<Message[]>([]);
+  const messageListRef = useRef<HTMLElement>(null);
+
+  async function handleSend(event: React.SyntheticEvent) {
+    event.preventDefault()
+    if (!text || !channel) return
+    await channel.sendText(text)
+    setText("")
+  }
 
   useEffect(() => {
-    const publishKey = "";
-    const subscribeKey = "";
-    const userId = "";
+    if (!messageListRef.current) return
+    messageListRef.current.scrollTop = messageListRef.current.scrollHeight
+  }, [messages])
 
-    Chat.init({
-      publishKey,
-      subscribeKey,
-      userId,
-      typingTimeout: 3000,
-    }).then(setChat);
-    })
+  useEffect(() => {
+    if (!channel) return
+    return channel.connect((message) => setMessages((messages) => [...messages, message]))
+  }, [channel])
+
+  useEffect(() => {
+    async function initalizeChat() {
+      const chat = await Chat.init({
+        publishKey: process.env.PUBNUB_PUB_KEY,
+        subscribeKey: process.env.PUBNUB_SUB_KEY,
+        userId: randomizedUsers[0].id,
+      })
+      const currentUser = await chat.currentUser.update(randomizedUsers[0].data)
+      const interlocutor =
+        (await chat.getUser(randomizedUsers[1].id)) ||
+        (await chat.createUser(randomizedUsers[1].id, randomizedUsers[1].data))
+      const { channel } = await chat.createDirectConversation({
+        user: interlocutor,
+        channelData: { name: "Support Channel" },
+      })
+      setChat(chat)
+      setUsers([currentUser, interlocutor])
+      setChannel(channel)
+    }
+
+    initalizeChat()
+  }, [])
 
   useEffect(() => {
     const fetchData = async () => {
