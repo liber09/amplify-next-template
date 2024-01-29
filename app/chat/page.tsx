@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect, useRef, ChangeEvent } from 'react';
+import React, { useCallback, useState, useEffect, useRef, ChangeEvent } from 'react';
 import ChatRoom from '@/src/_components/chatRoom/ChatRoom';
 import styles from './page.module.scss';
 import { HealthcareProvider } from '../../src/types/interfaces';
@@ -72,6 +72,25 @@ const ChatPage: React.FC = () => {
 
     initalizeChat()
   }, [])
+
+  const renderMessagePart = useCallback((messagePart: MixedTextTypedElement) => {
+    if (messagePart.type === "text") {
+      return messagePart.content.text
+    }
+    if (messagePart.type === "plainLink") {
+      return <a href={messagePart.content.link}>{messagePart.content.link}</a>
+    }
+    if (messagePart.type === "textLink") {
+      return <a href={messagePart.content.link}>{messagePart.content.text}</a>
+    }
+    if (messagePart.type === "mention") {
+      return <a href={`https://pubnub.com/${messagePart.content.id}`}>{messagePart.content.name}</a>
+    }
+
+    return ""
+  }, [])
+
+  if (!chat || !channel) return <p>Loading...</p>
 
   useEffect(() => {
     const fetchData = async () => {
