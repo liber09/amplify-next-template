@@ -23,6 +23,7 @@
 }
 .chatRoomTitle{
     @include headLineText;
+    margin-top: $mg-large;
 }
 
 .userName{

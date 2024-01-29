@@ -41,6 +41,21 @@ const ChatPage: React.FC = () => {
   }
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const jsonData: HealthcareProvider[] = await getHealthCareProviderData();
+        console.log('jsonData: ', jsonData)
+        setHealthCareProviders(jsonData);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching healthcare provider data:', error);
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  },[]);
+
+  useEffect(() => {
     if (!messageListRef.current) return
     messageListRef.current.scrollTop = messageListRef.current.scrollHeight
   }, [messages])
@@ -95,36 +110,6 @@ const ChatPage: React.FC = () => {
   if (!chat || !channel) return <p>Loading...</p>
 
   // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const binId = process.env.NEXT_PUBLIC_HC_PROVIDERS_BIN_ID;
-  //       const apiKey = process.env.NEXT_PUBLIC_JSONBIN_API_KEY;
-    
-  //       console.log('BIN ID:', binId);
-  //       console.log('API Key:', apiKey);
-    
-  //       if (!binId || !apiKey) {
-  //         console.error('Healthcare provider API credentials are missing.');
-  //         return;
-  //       }
-    
-  //       const jsonData: HealthcareProvider[] = await getHealthCareProviderData(binId, apiKey);
-  //       console.log('jsonData: ', jsonData)
-  //       setHealthCareProviders(jsonData);
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       console.error('Error fetching healthcare provider data:', error);
-  //       setIsLoading(false);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log('Healthcare Providers Data:', healthCareProviders);
-  // }, []);
-
-  // useEffect(() => {
     
   //   const checkActiveChat = () => {
       
@@ -137,70 +122,101 @@ const ChatPage: React.FC = () => {
   //   checkActiveChat();
   // }, []); 
 
-  // const startChat = () => {
-  //   setHasActiveChat(true);
-  // };
+  const startChat = () => {
+    setHasActiveChat(true);
+  };
 
-  // const handleProviderChange = (event: ChangeEvent<HTMLSelectElement>) => {
-  //   const selectedId = event.target.value;
-  //   if (healthCareProviders !== null){
-  //     const provider = healthCareProviders.find((p) => p.id === selectedId) || null;
-  //   setSelectedProvider(provider);
-  //   }
-  // };
+  const handleProviderChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const selectedId = event.target.value;
+    if (healthCareProviders !== null){
+      const provider = healthCareProviders.find((p) => p.id === selectedId) || null;
+    setSelectedProvider(provider);
+    }
+  };
 
 
   return (
-    <main>
-      <header className={styles.chatRoomHeader}>
-        <h3 className={styles.chatRoomTitle}>{channel.name}</h3>
-        <h3 className={styles.userName}>{chat.currentUser.name}</h3>
-      </header>
-
-      <section className="message-list" ref={messageListRef}>
-        <ol>
-          {messages.map((message) => {
-            const user = users.find((user) => user.id === message.userId)
-            return (
-              <li key={message.timetoken}>
-                <aside style={{ background: String(user?.custom?.avatar) }}>
-                  {user?.custom?.initials}
-                </aside>
-                <article>
-                  <h3>
-                    {user?.name}
-                    <time>
-                      {TimetokenUtils.timetokenToDate(message.timetoken).toLocaleTimeString([], {
-                        timeStyle: "short",
-                      })}
-                    </time>
-                  </h3>
-                  <p>
-                    {message
-                      .getLinkedText()
-                      .map((messagePart: MixedTextTypedElement, i: number) => (
-                        <span key={String(i)}>{renderMessagePart(messagePart)}</span>
-                      ))}
-                  </p>
-                </article>
-              </li>
-            )
-          })}
-        </ol>
-      </section>
-      
-      <form className={styles.postMessageContainer} onSubmit={handleSend}>
-        <input
-          className={styles.messageInput}
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Skicka meddelande"
-        />
-        <input className={styles.sendButton} type="submit" value="Skicka" onClick={handleSend} />
-      </form>
-
-    </main>
-  );
+    <>
+      {isLoading ? (
+        <section className={styles.loadingContainer}>
+          <p className={styles.loadText}>Laddar...</p>
+        </section>
+      ) : hasActiveChat ? (
+        // Render the second part when there is an active chat
+        <main>
+          <header className={styles.chatRoomHeader}>
+            <h3 className={styles.chatRoomTitle}>{'Chat med ' + selectedProvider?.name + ', ' + selectedProvider?.city}</h3>
+            <h3 className={styles.userName}>{chat.currentUser.name}</h3>
+          </header>
+  
+          <section className="message-list" ref={messageListRef}>
+            <ol>
+              {messages.map((message) => {
+                const user = users.find((user) => user.id === message.userId)
+                return (
+                  <li key={message.timetoken}>
+                    <aside style={{ background: String(user?.custom?.avatar) }}>
+                      {user?.custom?.initials}
+                    </aside>
+                    <article>
+                      <h3>
+                        {user?.name}
+                        <time>
+                          {TimetokenUtils.timetokenToDate(message.timetoken).toLocaleTimeString([], {
+                            timeStyle: "short",
+                          })}
+                        </time>
+                      </h3>
+                      <p>
+                        {message
+                          .getLinkedText()
+                          .map((messagePart: MixedTextTypedElement, i: number) => (
+                            <span key={String(i)}>{renderMessagePart(messagePart)}</span>
+                          ))}
+                      </p>
+                    </article>
+                  </li>
+                )
+              })}
+            </ol>
+          </section>
+  
+          <form className={styles.postMessageContainer} onSubmit={handleSend}>
+            <input
+              className={styles.messageInput}
+              type="text"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              placeholder="Skicka meddelande"
+            />
+            <input className={styles.sendButton} type="submit" value="Skicka" onClick={handleSend} />
+          </form>
+        </main>
+      ) : (
+        // Render the first part when there is no active chat
+        <section key={JSON.stringify(healthCareProviders)}>
+          <h1 className={styles.pageTitle}>
+            {hasActiveChat
+              ? `Chat med ${selectedProvider?.name || 'din vårdcentral'}`
+              : 'Chatta med din vårdcentral'}
+          </h1>
+          <section className={styles.chatContent}>
+            {!hasActiveChat && healthCareProviders !== null && (
+              <select className={styles.dropDown} id='healthcareProvider' onChange={handleProviderChange}>
+                <option value=''>Välj din vårdcentral...</option>
+                {healthCareProviders.map((provider) => (
+                  <option key={provider.id} value={provider.id}>
+                    {provider.name + ', ' + provider.city}
+                  </option>
+                ))}
+              </select>
+            )}
+            <DynamicButton text='Starta chat' backgroundColor='#B0001E' onClick={startChat} />
+            {hasActiveChat && selectedHealthcareProvider && <ChatRoom healthcareProvider={selectedHealthcareProvider} />}
+          </section>
+        </section>
+      )}
+    </>
+  );  
 };
 export default ChatPage;
