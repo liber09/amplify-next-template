@@ -78,7 +78,13 @@ interface ImageNameProps {
             height={390}
           />
         ) : (
-          <div className={styles.defaultImage}>Default Image</div>
+          <Image
+              className={styles.profileImage}
+              src={ImageHandler("vecteezy_illustration-of-human-icon-vector-user-symbol-icon-modern_8442086_aho0fs").toURL()}
+              alt={"Standard användarbild"}
+              width={390} // set the desired width
+              height={390} // set the desired height
+            />
         )}
         <p className={styles.medicalId}>
           <span>
