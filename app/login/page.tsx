@@ -92,10 +92,11 @@ const Login:React.FC = () => {
         value={password}
         onChange={handlePasswordChange}
       />
-
-      <DynamicButton text={'Logga in'} backgroundColor='#B0001E' onClick={handleLogin}></DynamicButton>
-
-      <DynamicButton text={'Registrera dig'} onClick={handleCreateNewAccount}></DynamicButton>
+      <article className = {styles.buttonContainer}>
+        <DynamicButton text={'Logga in'} backgroundColor='#B0001E' onClick={handleLogin}></DynamicButton>
+        <DynamicButton text={'Registrera dig'} onClick={handleCreateNewAccount}></DynamicButton>
+      </article>
+      
       
     </section>
   );

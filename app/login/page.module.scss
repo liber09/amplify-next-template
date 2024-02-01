@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: $mg-huge;
 }
 
 .bankIdLogo{
@@ -22,4 +23,12 @@
 .errorMessage{
     @include paragraphText;
     color: $red;
+}
+
+.buttonContainer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 120px;
 }
