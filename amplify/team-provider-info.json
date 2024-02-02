@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-medime-dev-91340-authRole",
+      "UnauthRoleArn": "arn:aws:iam::381492216440:role/amplify-medime-dev-91340-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::381492216440:role/amplify-medime-dev-91340-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-medime-dev-91340-deployment",
+      "UnauthRoleName": "amplify-medime-dev-91340-unauthRole",
+      "StackName": "amplify-medime-dev-91340",
+      "StackId": "arn:aws:cloudformation:eu-north-1:381492216440:stack/amplify-medime-dev-91340/fc8fa880-c1a2-11ee-84a0-06b7dd468f37",
+      "AmplifyAppId": "dfl1dbwrxl649"
+    }
+  }
+}
