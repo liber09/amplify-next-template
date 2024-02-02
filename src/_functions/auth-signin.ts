@@ -1,6 +1,6 @@
 import { signIn as amplifySignIn } from 'aws-amplify/auth';
 import { Amplify } from 'aws-amplify';
-import config from '../amplifyconfiguration.json'
+import config from '../../amplifyconfiguration.json'
 
 interface SignInData {
   username: string;
