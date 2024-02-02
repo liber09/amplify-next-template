@@ -6,6 +6,10 @@ import './globals.scss';
 import Header from '../src/_components/header/header';
 import Menu from '../src/_components/menu/menu';
 import { AuthProvider } from '../src/_functions/AuthContext';
+import { Amplify } from 'aws-amplify';
+import config from '../amplifyconfiguration.json';
+
+Amplify.configure(config);
 
 const inter = Inter({ subsets: ['latin'] })
 

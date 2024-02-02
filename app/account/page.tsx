@@ -15,7 +15,8 @@ const Account = () => {
   const { state } = useAuth();
   console.log('account: ', state.isAuthenticated);
   return (
-    <AuthenticatedComponent>
+    <>
+    {/* <AuthenticatedComponent> */}
       <section>
         <ImageName identificationNumber={"image"}></ImageName>
       </section>
@@ -149,7 +150,8 @@ const Account = () => {
         <p className={styles.assosiationTitle}>Svampens IK:</p>
         <p className={styles.assosiationText}>Mullsjön runt, vem plockar mest?</p>
       </section>
-    </AuthenticatedComponent>
+    {/* </AuthenticatedComponent> */}
+    </>
   );
 };
 
