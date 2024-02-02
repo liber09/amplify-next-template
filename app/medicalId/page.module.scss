@@ -1,0 +1,6 @@
+@import '../styles/variables.scss';
+
+.pageTitle{
+    @include headLineText;
+    margin: $mg-large;
+}
