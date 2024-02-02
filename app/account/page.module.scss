@@ -9,6 +9,18 @@
     align-items: center; 
 }
 
+.medicalId{
+    @include paragraphText;
+    background-color: $red;
+    padding: $pd-medium;
+    color: $white;
+    font-weight: 700;
+    border-radius: $br-medium;
+    width: 50%;
+    margin: $mg-small auto $mg-medium auto;
+    text-align: center;
+}
+
 .column{
     @include paragraphText;
     color: $c-link;

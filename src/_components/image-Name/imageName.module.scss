@@ -19,14 +19,6 @@
     height: 180px;
 }
 
-.medicalId{
-    @include paragraphText;
-    background-color: $red;
-    padding: $pd-medium;
-    color: $white;
-    font-weight: 700;
-    border-radius: $br-medium;
-}
 .userName{
     @include headLineText;
     margin: $mg-large;
