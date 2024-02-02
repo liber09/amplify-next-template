@@ -29,14 +29,17 @@
     "utf-8-validate": "^5.0.10"
   },
   "devDependencies": {
-    "@aws-amplify/backend": "^0.10.2",
+    "@aws-amplify/backend": "^0.10.3",
     "@aws-amplify/backend-cli": "^0.9.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-slick": "^0.23.13",
+    "aws-cdk": "^2.125.0",
+    "aws-cdk-lib": "^2.125.0",
+    "constructs": "^10.3.0",
     "prisma": "^5.8.1",
     "sass": "^1.70.0",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   }
 }

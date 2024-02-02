@@ -1,6 +1,0 @@
-{
-  "AppSyncApiName": "amplifynexttemplate",
-  "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2024-01-26T02:29:22.069Z"
-}
