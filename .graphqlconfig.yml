@@ -1,0 +1,16 @@
+projects:
+  DiarayPostsAPI:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/graphql/**/*.ts
+    excludes:
+      - ./amplify/**
+      - src/API.ts
+    extensions:
+      amplify:
+        codeGenTarget: typescript
+        generatedFileName: src/API.ts
+        docsFilePath: src/graphql
+        region: eu-north-1
+        apiId: wea7twl6p5bhrhfzfkurmuamky
+        maxDepth: 2
