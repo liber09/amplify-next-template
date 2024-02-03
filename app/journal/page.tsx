@@ -18,12 +18,10 @@ interface TodoListResponse {
 
 const client = generateClient<Schema>();
 
-
-
-async function fetchJournalPosts() {
-  const { data: todos, errors } = await client.models.Todo.list() as TodoListResponse;
-}
-fetchJournalPosts() 
+// async function fetchJournalPosts() {
+//   const { data: todos, errors } = await client.models.Todo.list() as TodoListResponse;
+// }
+// fetchJournalPosts() 
 
 const Journal = () => { 
   const [todos, setTodos] = React.useState<Todo[]>([]);
@@ -33,7 +31,7 @@ const Journal = () => {
     {/* <AuthenticatedComponent> */}
       <section>       
         <h1>Din journal</h1>
-        <ul>{todos.map((todo) => <li key={todo.id}>{todo.content}</li>)}</ul>
+        {/* <ul>{todos.map((todo) => <li key={todo.id}>{todo.content}</li>)}</ul> */}
         <ExpandableRow
             date='2022-01-18'
             type='Telefonkontakt'
