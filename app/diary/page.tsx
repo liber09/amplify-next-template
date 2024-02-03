@@ -4,6 +4,7 @@ import styles from './page.module.scss';
 import ImageHandler from "@/src/_functions/imageHandler";
 import type { Schema } from '@/amplify/data/resource'
 import { generateClient } from 'aws-amplify/data'
+import * as API from '../../src/API';
 
 interface IDiaryPost {
   name: string;
@@ -41,19 +42,29 @@ const Diary: React.FC = () => {
   };
 
   const handleSaveNewPost = async () => {
-    // Perform the logic to save the new post
-    // You can use the 'newPostText' state to access the entered text
+    try {
+      const input: API.CreateDiaryPostInput = {
+        name: 'YourName', // Set the appropriate name here
+        date: new Date().toISOString(), // Use the current date as an example
+        text: newPostText,
+      };
 
-    // For example:
-    // await client.models.YourDiaryModel.create({
-    //   text: newPostText,
-    //   // other fields...
-    // });
+      // const response = await client.mutate<API.CreateDiaryPostMutation>({
+      //   mutation: API.createDiaryPost,
+      //   variables: { input },
+      // });
 
-    // After saving, close the popup and fetch updated data
-    setPopupVisibility(false);
-    fetchData();
+      // const createdDiaryPost = response?.data?.createDiaryPost;
+      // if (createdDiaryPost) {
+      //   console.log('New diary post created:', createdDiaryPost);
+      //   setPopupVisibility(false);
+      //   fetchData();
+      // }
+    } catch (error) {
+      console.error('Error creating new diary post:', error);
+    }
   };
+
 
   const fetchData = async () => {
     try {
