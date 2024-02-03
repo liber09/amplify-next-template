@@ -10,6 +10,11 @@
       "StackName": "amplify-medime-dev-91340",
       "StackId": "arn:aws:cloudformation:eu-north-1:381492216440:stack/amplify-medime-dev-91340/fc8fa880-c1a2-11ee-84a0-06b7dd468f37",
       "AmplifyAppId": "dfl1dbwrxl649"
+    },
+    "categories": {
+      "auth": {
+        "medime2273f247": {}
+      }
     }
   }
 }
