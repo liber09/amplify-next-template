@@ -13,6 +13,13 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization([a.allow.owner(), a.allow.public().to(['read'])]),
+    diaryPost: a
+    .model({
+      name: a.string(),
+      date: a.date(),
+      text: a.string()
+    })
+    .authorization([a.allow.owner()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;

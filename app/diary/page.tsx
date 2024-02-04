@@ -6,6 +6,7 @@ import type { Schema } from '@/amplify/data/resource'
 import { generateClient } from 'aws-amplify/data'
 import * as API from '../../src/API';
 
+
 interface IDiaryPost {
   name: string;
   date: string;
@@ -15,7 +16,7 @@ interface IDiaryPost {
 const client = generateClient<Schema>()
 
 const Diary: React.FC = () => {
-  const [diaryPosts, setDiaryPostList] = useState<IDiaryPost[]>([]);
+  const [diaryPosts, setDiaryPostList] = useState<Schema["diaryPost"][]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPopupVisible, setPopupVisibility] = useState(false);
   const [newPostText, setNewPostText] = useState('');
@@ -49,28 +50,39 @@ const Diary: React.FC = () => {
         text: newPostText,
       };
 
-      // const response = await client.mutate<API.CreateDiaryPostMutation>({
-      //   mutation: API.createDiaryPost,
-      //   variables: { input },
-      // });
-
-      // const createdDiaryPost = response?.data?.createDiaryPost;
-      // if (createdDiaryPost) {
-      //   console.log('New diary post created:', createdDiaryPost);
-      //   setPopupVisibility(false);
-      //   fetchData();
-      // }
+      await client.models.diaryPost.create(input)
+      setPopupVisibility(false);
+      //fetchData();
     } catch (error) {
       console.error('Error creating new diary post:', error);
     }
+    fetchPosts();
   };
 
+  const fetchPosts = async () => {
+    const { data: items, errors } = await client.models.diaryPost.list()
+    setDiaryPostList(items)
+  }
+
+  // useEffect(() => {
+  //   const sub = client.models.diaryPost
+  //     .observeQuery()
+  //     .subscribe({
+  //       next: ({ items }) => {
+  //         setDiaryPostList([...items])
+  //       }
+  //     })
+
+  //   return () => sub.unsubscribe()
+  // }, [])
 
   const fetchData = async () => {
     try {
-      const response = await fetch('https://private-ef3595-diary15.apiary-mock.com/diary');
-      const data: IDiaryPost[] = await response.json();
-      setDiaryPostList(data);
+      
+      // const response = await fetch('https://private-ef3595-diary15.apiary-mock.com/diary');
+      // const data: IDiaryPost[] = await response.json();
+      // setDiaryPostList(data);
+
     } catch (error) {
       console.error('Error fetching data:', error);
     }
