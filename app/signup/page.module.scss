@@ -7,7 +7,10 @@
     align-items: center;
     justify-content: center;
 }
-
+.pageTitle{
+    @include headLineText;
+    margin: $mg-large;
+}
 .textField{
     @include paragraphText;
     margin: $mg-medium;
@@ -16,5 +19,4 @@
     border-color: $red;
     border-radius: $br-medium;
     box-shadow: $defaultShadow;
-    
 }

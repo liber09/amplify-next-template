@@ -1,0 +1,17 @@
+{
+  "resourceName": "medimestorage",
+  "policyUUID": "164318ac",
+  "bucketName": "medimeimagebucket",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
