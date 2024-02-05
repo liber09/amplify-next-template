@@ -63,19 +63,19 @@ const RegistrationPage: React.FC = () => {
     <div style={{ maxWidth: '400px', margin: 'auto' }}>
       <h2 className = {styles.pageTitle}>Registrera</h2>
       <Form<RegistrationFormValues> onFinish={onFinish}>
-        <Form.Item name="given_name" rules={[{ required: true, message: 'Please enter your given name' }]}>
+        <Form.Item name="given_name" rules={[{ required: true, message: 'Var vänlig och ange ett förnamn' }]}>
           <Input prefix={<UserOutlined />} placeholder="Förenamn" />
         </Form.Item>
-        <Form.Item name="family_name" rules={[{ required: true, message: 'Please enter your family name' }]}>
+        <Form.Item name="family_name" rules={[{ required: true, message: 'Var vänlig och enge ett efternamn' }]}>
           <Input prefix={<UserOutlined />} placeholder="Efternamn" />
         </Form.Item>
-        <Form.Item name="email" rules={[{ required: true, type: 'email', message: 'Please enter a valid email' }]}>
+        <Form.Item name="email" rules={[{ required: true, type: 'email', message: 'Var vänlig och fyll i en gilltig epostadress' }]}>
           <Input prefix={<MailOutlined />} placeholder="Email" />
         </Form.Item>
-        <Form.Item name="username" rules={[{ required: true, message: 'Please enter a username' }]}>
+        <Form.Item name="username" rules={[{ required: true, message: 'Var vänlig fyll i ett användarnamn' }]}>
           <Input prefix={<UserOutlined />} placeholder="Användarnamn" />
         </Form.Item>
-        <Form.Item name="password" rules={[{ required: true, message: 'Please enter a password' }]}>
+        <Form.Item name="password" rules={[{ required: true, message: 'Var vänlig och ange ett lösenord' }]}>
           <Input.Password prefix={<LockOutlined />} placeholder="Lösenord" />
         </Form.Item>
         <Form.Item name="profilePicture" valuePropName="file" getValueFromEvent={(e) => e.file}>
