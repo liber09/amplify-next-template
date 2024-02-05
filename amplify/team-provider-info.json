@@ -12,11 +12,11 @@
       "AmplifyAppId": "dfl1dbwrxl649"
     },
     "categories": {
-      "auth": {
-        "medime2273f247": {}
-      },
       "storage": {
         "medimestorage": {}
+      },
+      "auth": {
+        "medime6f6bb2b8": {}
       }
     }
   }
